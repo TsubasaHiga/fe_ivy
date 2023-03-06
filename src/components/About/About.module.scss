@@ -1,0 +1,42 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding: 80px 20px 18px;
+  border: 1px solid map.get($map: $colors, $key: 'color-border-black');
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 80px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 61px;
+  align-items: center;
+
+  p {
+    @include fz(18, 34);
+  }
+}
+
+.title {
+  padding-left: 23px;
+  @include letter-spacing(40);
+
+  font-feature-settings: 'palt';
+}
+
+.sns-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 173px);
+  grid-auto-rows: auto;
+  gap: 15px;
+}

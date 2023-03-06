@@ -1,0 +1,24 @@
+.header {
+  position: relative;
+  z-index: 9;
+  width: 100%;
+}
+
+.wrap {
+  width: 100%;
+  background-color: #fff;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  height: map.get($map: $header-h, $key: md);
+  @include mqw-down {
+    height: map.get($map: $header-h, $key: sm);
+  }
+}
+
+.logo {
+  width: 120px;
+  margin-right: auto;
+}

@@ -1,0 +1,13 @@
+.link {
+  @include fz(16, 16, 700);
+  @include hover-opacity;
+
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  svg {
+    font-size: 18px;
+  }
+}

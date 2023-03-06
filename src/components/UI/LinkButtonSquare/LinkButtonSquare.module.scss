@@ -1,0 +1,17 @@
+.button {
+  @include fz(18, 18, 700);
+  @include hover-opacity;
+
+  display: flex;
+  gap: 0 4px;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  font-family: $font-mix;
+  font-style: italic;
+  user-select: none;
+  background-color: #fff;
+  border: 1px solid map.get($colors, 'color-border-black');
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #000;
+}

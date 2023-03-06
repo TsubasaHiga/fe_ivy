@@ -1,0 +1,43 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px;
+  background-color: transparent;
+  border-color: map.get($colors, 'color-border-light');
+  border-style: solid;
+  border-width: 0 0 1px;
+  transition: background-color $com-ms $com-es;
+
+  @include canhover {
+    &:hover {
+      background-color: map.get($colors, 'color-light-gray');
+    }
+  }
+
+  @include first {
+    border-width: 1px 0;
+  }
+}
+
+.inner {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.date {
+  @include fz(16, 28);
+
+  font-family: $font-inter;
+}
+
+.title {
+  @include fz(16, 28, 700);
+}
+
+.icon {
+  svg {
+    font-size: 25px;
+  }
+}

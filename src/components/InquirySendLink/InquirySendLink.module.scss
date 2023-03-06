@@ -1,0 +1,33 @@
+.link {
+  @include fz(14, 14, 700);
+
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 17px 0 20px;
+  font-family: $font-mix;
+  color: map.get($colors, 'color-dark-text');
+  background-color: map.get($colors, 'color-light-gray');
+  border-radius: 8px;
+  transition: color $com-ms $com-es, background-color $com-ms $com-es;
+
+  &[data-disabled='true'] {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .icon {
+    svg {
+      font-size: 19px;
+    }
+  }
+
+  @include canhover {
+    &:not([disabled]):hover {
+      color: map.get($colors, 'color-white');
+      background-color: map.get($colors, 'color-black');
+    }
+  }
+}

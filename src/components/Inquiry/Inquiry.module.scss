@@ -1,0 +1,54 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 980px;
+  margin: 100px auto 0;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+
+  .title {
+    @include fz(30, 30, 700);
+
+    span {
+      background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .text {
+    @include fz(14, 28);
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px 40px 20px;
+  background-color: map.get($colors, 'color-white');
+  border-radius: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 19px;
+  border-top: 2px dashed map.get($colors, 'color-border-light');
+}

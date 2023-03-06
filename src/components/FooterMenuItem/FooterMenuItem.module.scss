@@ -1,0 +1,8 @@
+.link {
+  @include fz(14, 16);
+  @include hover-opacity;
+
+  display: flex;
+  align-items: center;
+  color: map.get($colors, 'color-light-text');
+}

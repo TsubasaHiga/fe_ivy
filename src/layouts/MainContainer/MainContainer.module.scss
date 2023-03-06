@@ -1,0 +1,8 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 152px;
+  max-width: $main-w;
+  padding-bottom: 60px;
+  margin: 0 auto;
+}

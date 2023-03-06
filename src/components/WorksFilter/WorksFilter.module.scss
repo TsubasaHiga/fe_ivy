@@ -1,0 +1,35 @@
+.filter {
+  display: flex;
+  flex-shrink: 0;
+  gap: 5px;
+  height: 100%;
+  padding: 8px;
+  background-color: map.get($colors, 'color-white');
+  border: 1px solid map.get($colors, 'color-border-light');
+  border-radius: 10px;
+}
+
+.button {
+  @include fz(16, 16, 700);
+
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  color: map.get($colors, 'color-dark-text');
+  background-color: map.get($colors, 'color-light-gray');
+  border-radius: 8px;
+  transition: color $com-ms $com-es, background-color $com-ms $com-es;
+
+  @include canhover {
+    &:hover {
+      color: map.get($colors, 'color-white');
+      background-color: map.get($colors, 'color-black');
+    }
+  }
+}
+
+.active {
+  color: map.get($colors, 'color-white');
+  background-color: map.get($colors, 'color-black');
+}

@@ -1,0 +1,46 @@
+.inner {
+  margin-top: 30px;
+}
+
+.head {
+  @include fz(14, 14);
+
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: center;
+  color: map.get($colors, 'color-dark-text');
+
+  .login {
+    @include fz(14, 14);
+
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 4px 10px;
+    color: map.get($colors, 'color-dark-text');
+    background: #fff;
+    border: 1px dashed map.get($colors, 'color-black');
+    border-radius: 4px;
+
+    svg {
+      font-size: 21px;
+    }
+  }
+}
+
+.search-and-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  margin-top: 50px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 21px;
+}

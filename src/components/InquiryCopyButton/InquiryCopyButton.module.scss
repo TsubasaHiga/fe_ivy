@@ -1,0 +1,85 @@
+.button {
+  @include fz(16, 16, 700);
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 5px 5px 5px 14px;
+  color: map.get($colors, 'color-white');
+  background-color: map.get($colors, 'color-black');
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: color $com-ms $com-es, background-color $com-ms $com-es, border-color $com-ms $com-es;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  .icon {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: map.get($colors, 'color-dark-text');
+    background-color: map.get($colors, 'color-white');
+    border-radius: 6px;
+    transition: color $com-ms $com-es, background-color $com-ms $com-es;
+
+    svg {
+      font-size: 24px;
+    }
+
+    span {
+      @include fz(20);
+
+      transform-origin: bottom left;
+      animation: thumb-up 320ms $ease-in-out-sine forwards;
+      animation-play-state: paused;
+
+      @keyframes thumb-up {
+        20% {
+          rotate: 0deg;
+          scale: 1;
+        }
+
+        60% {
+          rotate: 10deg;
+          translate: 0 1px;
+          scale: 0.95;
+        }
+
+        100% {
+          rotate: -18deg;
+          translate: 1px 4px;
+          scale: 1.25;
+        }
+      }
+    }
+  }
+
+  @include canhover {
+    &:not([disabled]):hover {
+      color: map.get($colors, 'color-black');
+      background-color: map.get($colors, 'color-white');
+      border-color: map.get($colors, 'color-black');
+
+      .icon {
+        color: map.get($colors, 'color-white');
+        background-color: map.get($colors, 'color-black');
+      }
+    }
+  }
+
+  &.active {
+    .icon {
+      span {
+        animation-play-state: running;
+      }
+    }
+  }
+}

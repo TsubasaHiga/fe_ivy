@@ -1,0 +1,71 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0 80px;
+  margin-bottom: -16px;
+}
+
+.title {
+  @include fz(26, 26, 700);
+
+  width: 100%;
+
+  span {
+    background: linear-gradient(90deg, #ec008c 0%, #fc6767 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 110px;
+  overflow: hidden;
+
+  &::after {
+    @include icon-ini;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    background: linear-gradient(0deg, #fff 0%, rgb(255 255 255 / 0%) 56.25%);
+    opacity: 1;
+  }
+
+  dl {
+    display: flex;
+    gap: 30px;
+
+    dt {
+      @include fz(18, 28, 700);
+
+      min-width: 100px;
+      font-family: $font-inter;
+      font-style: italic;
+    }
+
+    dd {
+      @include fz(16, 28);
+    }
+  }
+}
+
+.list-open {
+  max-height: unset;
+
+  &::after {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.button {
+  height: 59px;
+}

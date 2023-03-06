@@ -1,0 +1,27 @@
+.footer {
+  position: relative;
+  width: 100%;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 57px 0 31px;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  color: map.get($colors, 'color-light-text');
+}
+
+.copyright {
+  @include fz(12);
+
+  font-family: $font-inter;
+  color: map.get($colors, 'color-light-text');
+}

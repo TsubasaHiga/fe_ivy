@@ -1,0 +1,36 @@
+.send {
+  display: flex;
+  gap: 6px;
+  padding: 6px 6px 6px 13px;
+  border: 1px solid map.get($colors, 'color-border-black');
+  border-radius: 10px;
+
+  .text {
+    @include fz(16, 16, 700);
+
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    .icon {
+      svg {
+        font-size: 33px;
+      }
+    }
+  }
+
+  .inner {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    border: 1px solid map.get($colors, 'color-border-light');
+
+    .text {
+      color: map.get($colors, 'color-light-text');
+    }
+  }
+}
