@@ -4,6 +4,12 @@
   gap: 25px;
   padding: 0 80px;
   margin-bottom: -16px;
+
+  @include mqw-down {
+    gap: 17px;
+    padding: 0 10px;
+    margin-bottom: -46px;
+  }
 }
 
 .title {
@@ -26,6 +32,11 @@
   max-height: 110px;
   overflow: hidden;
 
+  @include mqw-down {
+    gap: 6px;
+    max-height: 170px;
+  }
+
   &::after {
     @include icon-ini;
 
@@ -37,22 +48,46 @@
     visibility: visible;
     background: linear-gradient(0deg, #fff 0%, rgb(255 255 255 / 0%) 56.25%);
     opacity: 1;
+
+    @include mqw-down {
+      background: linear-gradient(0deg, #fff 0%, rgb(255 255 255 / 0%) 68.75%);
+    }
   }
 
   dl {
     display: flex;
     gap: 30px;
 
+    @include mqw-down {
+      flex-direction: column;
+      gap: 0 5px;
+    }
+
     dt {
       @include fz(18, 28, 700);
 
-      min-width: 100px;
       font-family: $font-inter;
       font-style: italic;
+
+      @include mqw-up {
+        min-width: 100px;
+      }
+
+      @include mqw-down {
+        @include fz(16);
+
+        br {
+          display: none;
+        }
+      }
     }
 
     dd {
       @include fz(16, 28);
+
+      @include mqw-down {
+        @include fz(14, 28);
+      }
     }
   }
 }

@@ -7,14 +7,15 @@ import styles from './Select.module.scss'
 type Props = {
   options: string[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  addClassName?: string
 }
 
-const Select = ({ options, onChange }: Props) => {
+const Select = ({ options, onChange, addClassName }: Props) => {
   // selectを変更したかどうかを判定するためのstate
   const [isChanged, setIsChanged] = useState(false)
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, addClassName)}>
       <select
         className={clsx(styles.select, isChanged && styles.changed)}
         onChange={(e) => {

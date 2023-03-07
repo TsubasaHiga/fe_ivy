@@ -6,4 +6,14 @@
   background-color: #fff;
   border-radius: 0 0 100px 100px;
   box-shadow: 0 20px 40px rgb(0 0 0 / 2%);
+
+  @include mqw-down {
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 20px 40px rgb(0 0 0 / 4%);
+
+    @include orientation {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
 }

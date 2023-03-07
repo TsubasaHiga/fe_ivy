@@ -1,6 +1,5 @@
 .item {
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: 18px 20px;
   background-color: transparent;
@@ -18,12 +17,25 @@
   @include first {
     border-width: 1px 0;
   }
+
+  @include mqw-up {
+    align-items: center;
+  }
+
+  @include mqw-down {
+    padding: 13px 10px;
+  }
 }
 
 .inner {
   display: flex;
   gap: 20px;
   width: 100%;
+
+  @include mqw-down {
+    flex-direction: column;
+    gap: 3px;
+  }
 }
 
 .date {
@@ -34,6 +46,10 @@
 
 .title {
   @include fz(16, 28, 700);
+
+  @include mqw-down {
+    @include fz(16, 22);
+  }
 }
 
 .icon {

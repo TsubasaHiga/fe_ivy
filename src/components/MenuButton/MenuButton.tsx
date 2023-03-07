@@ -2,6 +2,7 @@ import { useStore } from '@nanostores/react'
 import { siteState } from '@store/atoms/siteState'
 import clsx from 'clsx'
 import { useEffect } from 'react'
+import { useLockedBody } from 'usehooks-ts'
 
 import styles from './MenuButton.module.scss'
 
@@ -9,12 +10,18 @@ const MenuButton = (): JSX.Element => {
   const $siteState = useStore(siteState)
   const { isOpenMenu } = $siteState
 
+  // useLockedBodyを使って、body要素のスクロールを固定する
+  const [, setLocked] = useLockedBody(false, 'root')
+
   // buttonのclickでsiteStateのisOpenMenuをtoggleする
   const handleClick = () => {
     siteState.set({
       ...$siteState,
       isOpenMenu: !$siteState.isOpenMenu
     })
+
+    // isOpenMenuの値に応じて、body要素のスクロールを固定する
+    setLocked(!isOpenMenu)
   }
 
   useEffect(() => {
@@ -35,8 +42,9 @@ const MenuButton = (): JSX.Element => {
         title="メニューを開く"
       >
         <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <button className={styles.bg} onClick={handleClick} title="閉じる"></button>
     </>
   )
 }

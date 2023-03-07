@@ -1,3 +1,6 @@
 .section {
-  scroll-margin-top: 20px;
+  scroll-margin-top: map.get($map: $header-h, $key: md);
+  @include mqw-down {
+    scroll-margin-top: map.get($map: $header-h, $key: sm);
+  }
 }

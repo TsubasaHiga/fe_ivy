@@ -1,5 +1,11 @@
 .inner {
+  display: flex;
+  flex-direction: column;
   margin-top: 30px;
+
+  @include mqw-down {
+    margin-top: 17px;
+  }
 }
 
 .head {
@@ -11,20 +17,30 @@
   justify-content: center;
   color: map.get($colors, 'color-dark-text');
 
+  @include mqw-down {
+    gap: 10px;
+  }
+
   .login {
     @include fz(14, 14);
 
     display: flex;
     gap: 4px;
     align-items: center;
-    padding: 4px 10px;
+    justify-content: center;
     color: map.get($colors, 'color-dark-text');
     background: #fff;
     border: 1px dashed map.get($colors, 'color-black');
     border-radius: 4px;
 
+    @include mqw-down {
+      width: 40px;
+      height: 36px;
+      border-style: solid;
+    }
+
     svg {
-      font-size: 21px;
+      font-size: 20px;
     }
   }
 }
@@ -36,6 +52,26 @@
   width: 100%;
   height: 56px;
   margin-top: 50px;
+
+  @include mqw-down {
+    position: sticky;
+    bottom: 15px;
+    gap: 5px;
+    order: 3;
+    height: 74px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: map.get($colors, 'color-white');
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 15%);
+
+    @include orientation {
+      $space: 20px;
+
+      width: calc(100% - $space * 2);
+      margin: 0 $space;
+    }
+  }
 }
 
 .list {
@@ -43,4 +79,8 @@
   flex-direction: column;
   gap: 5px;
   margin-top: 21px;
+
+  @include mqw-down {
+    margin-top: 30px;
+  }
 }

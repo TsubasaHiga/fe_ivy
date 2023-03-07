@@ -2,11 +2,32 @@
   position: relative;
   z-index: 9;
   width: 100%;
+
+  @include mqw-down {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
 
 .wrap {
+  position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: map.get($colors, 'color-white');
+
+  @include mqw-down {
+    padding-right: map.get($map: $space, $key: sm);
+    padding-left: map.get($map: $space, $key: sm);
+    background-color: transparent;
+
+    @include is-open-menu {
+      background-color: map.get($colors, 'color-white');
+    }
+  }
+  @include mqw-down(xs) {
+    padding-right: map.get($map: $space, $key: xs);
+    padding-left: map.get($map: $space, $key: xs);
+  }
 }
 
 .inner {
@@ -21,4 +42,9 @@
 .logo {
   width: 120px;
   margin-right: auto;
+
+  @include mqw-down {
+    width: 100px;
+    height: 16.59px;
+  }
 }

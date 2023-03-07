@@ -11,4 +11,8 @@
   @include placeholder {
     color: map.get($colors, 'color-gray');
   }
+
+  @include mqw-down {
+    height: 100px;
+  }
 }

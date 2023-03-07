@@ -109,7 +109,7 @@ export default Works
 const LoginButton = (): JSX.Element => {
   return (
     <button className={styles.login}>
-      <span>非開示案件を表示する</span>
+      <span className="u-mqw-up">非開示案件を表示する</span>
       <CardMembershipIcon />
     </button>
   )

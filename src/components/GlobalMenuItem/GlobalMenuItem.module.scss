@@ -4,6 +4,13 @@
 
   display: flex;
   align-items: center;
+
+  @include mqw-down {
+    @include fz(18);
+
+    gap: 6px;
+    width: 100%;
+  }
 }
 
 .icon {

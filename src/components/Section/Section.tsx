@@ -1,5 +1,4 @@
 import SectionTitle from '@components/SectionTitle/SectionTitle'
-import Spacer from '@layouts/Spacer/Spacer'
 
 import styles from './Section.module.scss'
 
@@ -7,15 +6,14 @@ type Props = {
   id: string
   title?: string
   children: React.ReactNode
+  sectionRef?: React.RefObject<HTMLElement>
 }
 
-const Section = ({ id, title, children }: Props) => {
+const Section = ({ id, title, children, sectionRef }: Props) => {
   return (
-    <section className={styles.section} id={id}>
-      <Spacer>
-        {title && <SectionTitle title={title} />}
-        {children}
-      </Spacer>
+    <section className={styles.section} id={id} ref={sectionRef}>
+      {title && <SectionTitle title={title} />}
+      {children}
     </section>
   )
 }

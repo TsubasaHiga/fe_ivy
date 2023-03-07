@@ -1,6 +1,7 @@
 import CareerList from '@components/CareerList/CareerList'
 import Section from '@components/Section/Section'
 import SectionTitle from '@components/SectionTitle/SectionTitle'
+import { useCallback, useRef } from 'react'
 
 import LinkButtonSquare from '@/components/UI/LinkButtonSquare/LinkButtonSquare'
 import { snsLinks } from '@/const/values'
@@ -8,12 +9,19 @@ import { snsLinks } from '@/const/values'
 import styles from './About.module.scss'
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // titleをクリックしたら、スクロールして該当セクションに移動する
+  const titleClickHandler = useCallback(() => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [sectionRef])
+
   return (
-    <Section id="about">
+    <Section id="about" sectionRef={sectionRef}>
       <div className={styles.about}>
         <div className={styles.inner}>
           <div className={styles.head}>
-            <SectionTitle addClassNames={styles.title} title="何者ですか？" />
+            <SectionTitle addClassName={styles.title} onClick={titleClickHandler} title="何者ですか？" />
             <p>
               1992年生まれ。沖縄県育ち、現在大阪暮らし。
               <br />

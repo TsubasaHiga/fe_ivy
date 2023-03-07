@@ -1,9 +1,17 @@
 .send {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 6px 6px 6px 13px;
   border: 1px solid map.get($colors, 'color-border-black');
   border-radius: 10px;
+
+  @include mqw-down(xmd) {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    padding: 10px;
+  }
 
   .text {
     @include fz(16, 16, 700);
@@ -16,13 +24,26 @@
       svg {
         font-size: 33px;
       }
+
+      @include mqw-down(xmd) {
+        rotate: 90deg;
+
+        svg {
+          font-size: 32px;
+        }
+      }
     }
   }
 
   .inner {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
     align-items: center;
+
+    @include mqw-down(xmd) {
+      width: 100%;
+    }
   }
 
   &[data-disabled='true'] {

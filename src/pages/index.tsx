@@ -1,4 +1,5 @@
 // import { Inter } from 'next/font/google'
+
 import About from '@components/About/About'
 import KV from '@components/KV/KV'
 import News from '@components/News/News'

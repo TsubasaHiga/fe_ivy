@@ -1,84 +1,69 @@
 .button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 20px;
+  right: 20px;
   display: flex;
+  flex-direction: column;
+  gap: 2px;
   align-items: center;
   justify-content: center;
-  width: map.get($map: $header-h, $key: md);
-  height: map.get($map: $header-h, $key: md);
-  background-color: #000;
-
-  @include mqw-down {
-    width: map.get($map: $header-h, $key: sm);
-    height: map.get($map: $header-h, $key: sm);
-  }
+  width: 45px;
+  height: 45px;
+  background-color: map.get($colors, 'color-light-gray');
+  border-radius: 6px;
 
   span {
-    $color: #fff;
-    $height: 1px;
-    $width: calc(100% - 38px);
-    $line-space: 10px;
+    $size: 4px;
+    $translate-x: 5px;
+    $dotted-ms: 280ms;
 
     position: relative;
-    width: $width;
-    height: $height;
-    background-color: $color;
-    transition: $com-ms $com-es;
+    width: $size;
+    height: $size;
+    background-color: map.get($colors, 'color-black');
+    border-radius: 100%;
+    transition: translate $dotted-ms $com-es;
 
-    &::before,
-    &::after {
-      @include icon-ini;
+    &:nth-child(1),
+    &:nth-child(3) {
+      &::before {
+        @include icon-ini;
 
-      position: absolute;
-      width: 100%;
-      height: $height;
-      background-color: $color;
-      transition: $com-ms $com-es;
-      will-change: transform;
-    }
-
-    &::before {
-      top: #{-$line-space};
-      left: 0;
-    }
-
-    &::after {
-      bottom: #{-$line-space};
-      left: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: map.get($colors, 'color-black');
+        border-radius: 100%;
+        transition: translate $dotted-ms $com-es;
+      }
     }
 
     @include is-open-menu {
-      background: none;
-
-      &::before {
-        top: calc(50%);
-        transform: rotate(135deg);
+      &:nth-child(1),
+      &:nth-child(3) {
+        &::before {
+          transition: translate $dotted-ms * 2 $com-es;
+          transition-delay: $dotted-ms;
+        }
       }
 
-      &::after {
-        top: calc(50%);
-        transform: rotate(-135deg);
+      &:nth-child(1) {
+        translate: $translate-x 0;
+
+        &::before {
+          translate: -$translate-x * 2 0;
+        }
+      }
+
+      &:nth-child(3) {
+        translate: -$translate-x 0;
+
+        &::before {
+          translate: $translate-x * 2 0;
+        }
       }
     }
-  }
-}
-
-.bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-  background-color: rgba(#000, 0.8);
-  opacity: 0;
-  transition: $com-ms $com-es;
-  will-change: opacity;
-
-  @include is-open-menu {
-    visibility: visible;
-    opacity: 1;
   }
 }

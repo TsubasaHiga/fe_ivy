@@ -7,7 +7,7 @@ $breakpoint-w: (
   xxlg: 1821px,
   xlg: 1536px,
   lg: 1300px,
-  xmd: 1100px,
+  xmd: 980px,
   md: 768px,
   sm: 375px,
   xs: 321px
@@ -21,27 +21,30 @@ $breakpoint-h: (
   xs: 549px
 ) !default;
 
+// containerW
+$container-w: 1280px;
+
 // mainW
-$main-w: 1280px;
+$main-w: 980px;
 
 // Basis space
 $space: (
   xmd: 75px,
   md: 20px,
-  sm: 15px,
+  sm: 10px,
   xs: 10px
 );
 
 // headerH
 $header-h: (
   md: 124px,
-  sm: 60px
+  sm: 85px
 );
 
 // kvのマイナスマージン
 $kv-margin: (
   md: 170px,
-  sm: 60px
+  sm: 130px
 );
 
 // font

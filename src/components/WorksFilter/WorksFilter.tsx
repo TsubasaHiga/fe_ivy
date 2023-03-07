@@ -49,16 +49,18 @@ const WorksFilter = ({ data }: Props): JSX.Element => {
 
   return (
     <div className={styles.filter}>
-      {selectedCategoryList.map((item, index) => (
-        <button
-          className={clsx(styles.button, item.isSelected && styles['active'])}
-          key={index}
-          onClick={() => clickHandler(item.name)}
-          title={item.name}
-        >
-          {item.name}
-        </button>
-      ))}
+      <div className={styles.inner}>
+        {selectedCategoryList.map((item, index) => (
+          <button
+            className={clsx(styles.button, item.isSelected && styles['active'])}
+            key={index}
+            onClick={() => clickHandler(item.name)}
+            title={item.name}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

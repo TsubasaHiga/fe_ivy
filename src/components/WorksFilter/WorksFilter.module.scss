@@ -3,10 +3,30 @@
   flex-shrink: 0;
   gap: 5px;
   height: 100%;
-  padding: 8px;
-  background-color: map.get($colors, 'color-white');
-  border: 1px solid map.get($colors, 'color-border-light');
-  border-radius: 10px;
+
+  @include mqw-up {
+    padding: 8px;
+    background-color: map.get($colors, 'color-white');
+    border: 1px solid map.get($colors, 'color-border-light');
+    border-radius: 10px;
+  }
+
+  @include mqw-down {
+    width: calc(100% - 54px + 5px - 8px);
+    overflow: auto;
+  }
+}
+
+.inner {
+  display: flex;
+  gap: 5px;
+  height: 100%;
+
+  @include mqw-down {
+    flex-shrink: 0;
+
+    // padding-right: 8px;
+  }
 }
 
 .button {
@@ -20,6 +40,13 @@
   background-color: map.get($colors, 'color-light-gray');
   border-radius: 8px;
   transition: color $com-ms $com-es, background-color $com-ms $com-es;
+
+  @include mqw-down {
+    @include fz(14);
+
+    padding: 0 14px;
+    border-radius: 6px;
+  }
 
   @include canhover {
     &:hover {

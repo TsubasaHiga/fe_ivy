@@ -5,6 +5,7 @@ import Select from '@components/UI/Select/Select'
 import TextArea from '@components/UI/TextArea/TextArea'
 import TextInput from '@components/UI/TextInput/TextInput'
 import { links, snsLinks } from '@const/values'
+import Spacer from '@layouts/Spacer/Spacer'
 import GenInquiryValueToString from '@modules/GenInquiryValueToString'
 import { InquiryKeyType, InquiryType } from '@type/InquiryType'
 import { useEffect, useState } from 'react'
@@ -68,51 +69,64 @@ const Inquiry = () => {
 
   return (
     <Section id="inquiry">
-      <div className={styles.inner}>
-        <div className={styles.head}>
-          <h2 className={styles.title}>
-            <span>お問い合わせ</span>
-          </h2>
-          <p className={styles.text}>
-            内容を入力の上各種チャットツール、またはSNSアカウントまで直接お問い合わせ下さい。以下を
-            <span>コピペ＆送信</span>頂くだけで大丈夫です👍
-          </p>
-        </div>
+      <div className={styles.inquiry}>
+        <Spacer>
+          <div className={styles.inner}>
+            <div className={styles.head}>
+              <h2 className={styles.title}>
+                <span>お問い合わせ</span>
+              </h2>
+              <p className={styles.text}>
+                内容を入力の上各種チャットツール、またはSNSアカウントまで直接お問い合わせ下さい。以下を
+                <span>コピペ＆送信</span>頂くだけで大丈夫です👍
+              </p>
+            </div>
 
-        <div className={styles.main}>
-          <div className={styles.list}>
-            <InquiryItem name="お名前" required>
-              <TextInput onChange={(e) => changeHandler('name', e.target.value)} placeholder="田中太郎" />
-            </InquiryItem>
-            <InquiryItem name="会社名・組織名">
-              <TextInput onChange={(e) => changeHandler('company', e.target.value)} placeholder="○○株式会社" />
-            </InquiryItem>
-            <InquiryItem name="種類" required>
-              <Select
-                onChange={(e) => changeHandler('type', e.target.value)}
-                options={['お仕事の依頼', 'お問い合わせ', 'その他']}
-              />
-            </InquiryItem>
-            <InquiryItem name="お問い合わせ内容" required>
-              <TextArea
-                onChange={(e) => changeHandler('content', e.target.value)}
-                placeholder="お問い合わせ内容を入力してください"
-              />
-            </InquiryItem>
-          </div>
+            <div className={styles.main}>
+              <div className={styles.list}>
+                <InquiryItem name="お名前" required>
+                  <TextInput
+                    addClassName={styles.input}
+                    onChange={(e) => changeHandler('name', e.target.value)}
+                    placeholder="田中太郎"
+                  />
+                </InquiryItem>
+                <InquiryItem name="会社名・組織名">
+                  <TextInput
+                    addClassName={styles.input}
+                    onChange={(e) => changeHandler('company', e.target.value)}
+                    placeholder="○○株式会社"
+                  />
+                </InquiryItem>
+                <InquiryItem name="種類" required>
+                  <Select
+                    addClassName={styles.select}
+                    onChange={(e) => changeHandler('type', e.target.value)}
+                    options={['お仕事の依頼', 'お問い合わせ', 'その他']}
+                  />
+                </InquiryItem>
+                <InquiryItem name="お問い合わせ内容" required>
+                  <TextArea
+                    onChange={(e) => changeHandler('content', e.target.value)}
+                    placeholder="お問い合わせ内容を入力してください"
+                  />
+                </InquiryItem>
+              </div>
 
-          <div className={styles.footer}>
-            <InquiryCopyButton
-              disabled={!isRequiredFilled}
-              onClick={() => setClipBoardValue(GenInquiryValueToString(inquiry))}
-            />
-            <InquirySendArea disabled={!isRequiredFilled}>
-              <InquirySendLink disabled={!isRequiredFilled} link={links.CHATWORK} text="Chatwork" />
-              <InquirySendLink disabled={!isRequiredFilled} link={links.SLACK} text="Slack" />
-              <InquirySendLink disabled={!isRequiredFilled} link={snsLinks.TWITTER} text="Twitter" />
-            </InquirySendArea>
+              <div className={styles.footer}>
+                <InquiryCopyButton
+                  disabled={!isRequiredFilled}
+                  onClick={() => setClipBoardValue(GenInquiryValueToString(inquiry))}
+                />
+                <InquirySendArea disabled={!isRequiredFilled}>
+                  <InquirySendLink disabled={!isRequiredFilled} link={links.CHATWORK} text="Chatwork" />
+                  <InquirySendLink disabled={!isRequiredFilled} link={links.SLACK} text="Slack" />
+                  <InquirySendLink disabled={!isRequiredFilled} link={snsLinks.TWITTER} text="Twitter" />
+                </InquirySendArea>
+              </div>
+            </div>
           </div>
-        </div>
+        </Spacer>
       </div>
     </Section>
   )

@@ -11,12 +11,23 @@
   justify-content: center;
   width: 100%;
   padding: 57px 0 31px;
+
+  @include mqw-down {
+    gap: 30px;
+    padding: 60px 0 25px;
+  }
 }
 
 .nav {
   display: flex;
   gap: 10px;
   color: map.get($colors, 'color-light-text');
+
+  @include mqw-down {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 }
 
 .copyright {

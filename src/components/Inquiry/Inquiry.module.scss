@@ -1,15 +1,34 @@
+.inquiry {
+  margin: 100px auto 0;
+}
+
 .inner {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 980px;
-  margin: 100px auto 0;
+  max-width: $main-w;
+  margin: 0 auto;
+
+  @include mqw-down {
+    gap: 37px;
+    padding-right: map.get($map: $space, $key: sm);
+    padding-left: map.get($map: $space, $key: sm);
+  }
+  @include mqw-down(xs) {
+    padding-right: map.get($map: $space, $key: xs);
+    padding-left: map.get($map: $space, $key: xs);
+  }
 }
 
 .head {
   display: flex;
   flex-direction: column;
   gap: 26px;
+
+  @include mqw-down {
+    gap: 37px;
+    align-items: center;
+  }
 
   .title {
     @include fz(30, 30, 700);
@@ -24,6 +43,10 @@
   .text {
     @include fz(14, 28);
 
+    @include mqw-down {
+      @include fz(14, 24);
+    }
+
     span {
       text-decoration: underline;
     }
@@ -34,15 +57,34 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 30px 40px 20px;
-  background-color: map.get($colors, 'color-white');
-  border-radius: 20px;
+
+  @include mqw-up {
+    padding: 30px 40px 20px;
+    background-color: map.get($colors, 'color-white');
+    border-radius: 20px;
+  }
 }
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @include mqw-down {
+    gap: 13px;
+  }
+
+  .input {
+    @include mqw-up {
+      width: 350px;
+    }
+  }
+
+  .select {
+    @include mqw-up {
+      width: 200px;
+    }
+  }
 }
 
 .footer {
@@ -51,4 +93,12 @@
   justify-content: flex-end;
   padding-top: 19px;
   border-top: 2px dashed map.get($colors, 'color-border-light');
+
+  @include mqw-up(xmd) {
+    min-height: 50px;
+  }
+
+  @include mqw-down(xmd) {
+    flex-direction: column;
+  }
 }
