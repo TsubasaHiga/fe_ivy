@@ -1,0 +1,25 @@
+.inner {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.list {
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.item {
+  @include fz(14, 18);
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: map.get($colors, 'color-light-text');
+
+  a {
+    @include hover-opacity;
+
+    text-decoration: underline;
+  }
+}

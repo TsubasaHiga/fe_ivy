@@ -1,3 +1,5 @@
+import type { PageKindListTypeList } from '@type/PageType'
+
 // 共通で使用する定数
 export const values = {
   // ブレイクポイント
@@ -35,4 +37,16 @@ export const snsLinks = {
 
   // Misskey
   MISSKEY: 'https://misskey.io/@higatsubasa'
+}
+
+// ページタイプと更新日・変更日のタイトルの関連リスト
+export const pageKindListType: PageKindListTypeList = {
+  article: {
+    publishedTitle: '投稿日',
+    updatedTitle: '更新日'
+  },
+  fixed: {
+    publishedTitle: '制定日',
+    updatedTitle: '改定日'
+  }
 }

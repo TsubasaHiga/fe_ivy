@@ -4,6 +4,7 @@ import MenuButton from '@components/MenuButton/MenuButton'
 import { links, snsLinks } from '@const/values'
 import Spacer from '@layouts/Spacer/Spacer'
 import CardMembershipIcon from '@mui/icons-material/CardMembership'
+import Link from 'next/link'
 
 import styles from './Header.module.scss'
 
@@ -13,9 +14,9 @@ const Header = () => {
       <div className={styles.wrap}>
         <Spacer>
           <div className={styles.inner}>
-            <a className={styles.logo} href={'/'} title="Topへ戻る">
+            <Link className={styles.logo} href={'/'} title="Topへ戻る">
               <Logo />
-            </a>
+            </Link>
             <GlobalMenu
               menuList={[
                 {

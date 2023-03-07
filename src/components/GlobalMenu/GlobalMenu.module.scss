@@ -8,7 +8,6 @@
     justify-content: center;
     width: 100%;
     height: calc(var(--vh, 1vh) * 100 - #{map.get($map: $header-h, $key: sm)});
-    padding: 0 10px 0 25px;
     visibility: hidden;
     background-color: rgba(map.get($colors, 'color-white'), 0.9);
     border-top: 1px solid #dee0e4;
@@ -30,7 +29,7 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
-    padding: 42px 0 40px;
+    padding: 42px 10px 40px 25px;
     overflow: auto;
   }
 }

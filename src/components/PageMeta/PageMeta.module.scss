@@ -1,0 +1,17 @@
+.meta {
+  @include fz(16, 16);
+
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include mqw-down {
+    @include fz(14);
+
+    gap: 10px;
+  }
+
+  time {
+    font-family: $font-inter;
+  }
+}

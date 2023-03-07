@@ -1,4 +1,4 @@
-import { DeviceType } from '@type/DeviceType'
+import type { DeviceType } from '@type/DeviceType'
 
 export type MenuItemType = {
   title: string

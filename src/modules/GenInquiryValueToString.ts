@@ -1,4 +1,4 @@
-import { InquiryKeyType, InquiryType } from '@type/InquiryType'
+import type { InquiryKeyType, InquiryType } from '@type/InquiryType'
 
 /**
  * 以下のような文字列を生成する

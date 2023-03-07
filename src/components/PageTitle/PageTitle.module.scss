@@ -1,0 +1,9 @@
+.title {
+  @include fz(40, 60, 700);
+
+  color: map.get($colors, 'color-dark-text');
+
+  @include mqw-down {
+    @include fz(28, 34);
+  }
+}

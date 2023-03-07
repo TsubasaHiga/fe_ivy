@@ -1,4 +1,4 @@
-import { DeviceType } from '@type/DeviceType'
+import type { DeviceType } from '@type/DeviceType'
 
 type GetDeviceTypeClassNameReturnType = 'u-mqw-up' | 'u-mqw-down' | ''
 

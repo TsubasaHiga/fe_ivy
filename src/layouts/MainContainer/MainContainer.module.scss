@@ -13,4 +13,12 @@
       padding-bottom: 50px;
     }
   }
+
+  &.padding-minimal {
+    padding-bottom: 50px;
+
+    @include mqw-down {
+      padding-bottom: 40px;
+    }
+  }
 }

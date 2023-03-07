@@ -7,7 +7,7 @@ import TextInput from '@components/UI/TextInput/TextInput'
 import { links, snsLinks } from '@const/values'
 import Spacer from '@layouts/Spacer/Spacer'
 import GenInquiryValueToString from '@modules/GenInquiryValueToString'
-import { InquiryKeyType, InquiryType } from '@type/InquiryType'
+import type { InquiryKeyType, InquiryType } from '@type/InquiryType'
 import { useEffect, useState } from 'react'
 import { useCopyToClipboard } from 'usehooks-ts'
 

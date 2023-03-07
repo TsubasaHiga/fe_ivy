@@ -10,7 +10,7 @@ import Layout from '@layouts/Layout/Layout'
 import MainContainer from '@layouts/MainContainer/MainContainer'
 import Spacer from '@layouts/Spacer/Spacer'
 import type { NewsResponse } from '@type/NewsType'
-import { WorksResponse } from '@type/WorksType'
+import type { WorksResponse } from '@type/WorksType'
 
 import { getNews, getWorks } from '@/libs/microcms'
 
