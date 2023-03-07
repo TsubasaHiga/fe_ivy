@@ -1,7 +1,7 @@
-import NewsItem from '@components/NewsItem/NewsItem'
+import NewsList from '@components/NewsList/NewsList'
 import Section from '@components/Section/Section'
 import LinkButtonCircle from '@components/UI/LinkButtonCircle/LinkButtonCircle'
-import type { NewsResponse, NewsType } from '@type/NewsType'
+import type { NewsResponse } from '@type/NewsType'
 
 import styles from './News.module.scss'
 
@@ -17,11 +17,7 @@ const News = ({ data }: Props): JSX.Element => {
   return (
     <Section id="news" title="お知らせ">
       <div className={styles.inner}>
-        <div className={styles.list}>
-          {data.contents.map((item: NewsType) => (
-            <NewsItem item={item} key={item.id} />
-          ))}
-        </div>
+        <NewsList data={data} />
         <LinkButtonCircle className={styles.button} link="/news/" title="全部見る" />
       </div>
     </Section>

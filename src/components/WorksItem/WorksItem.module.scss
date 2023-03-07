@@ -6,7 +6,7 @@
   // transition: box-shadow $com-ms $com-es;
 
   @include canhover {
-    &:hover {
+    &:not(.active):hover {
       box-shadow: 0 0 0 1px map.get($colors, 'color-border-black') inset;
     }
   }

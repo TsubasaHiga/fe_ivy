@@ -11,9 +11,13 @@ type Props = {
 const SectionTitle = ({ title, addClassName, onClick }: Props) => {
   return (
     <h2 className={clsx(styles.title, addClassName)}>
-      <span onClick={onClick} onKeyDown={onClick} role="button" tabIndex={0}>
-        {title}
-      </span>
+      {onClick ? (
+        <span onClick={onClick} onKeyDown={onClick} role="button" tabIndex={0}>
+          {title}
+        </span>
+      ) : (
+        <span>{title}</span>
+      )}
     </h2>
   )
 }

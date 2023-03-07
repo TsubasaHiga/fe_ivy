@@ -6,8 +6,8 @@ import Link from 'next/link'
 import styles from './PageNavigation.module.scss'
 
 type Props = {
-  prevLink: string | undefined
-  nextLink: string | undefined
+  prevLink?: string | undefined
+  nextLink?: string | undefined
   link: string
   title: string
 }

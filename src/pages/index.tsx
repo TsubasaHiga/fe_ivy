@@ -28,7 +28,7 @@ export const Index = ({ worksData, newsData }: Props) => {
         <Container>
           <KV />
           <Spacer>
-            <MainContainer>
+            <MainContainer isHome={true}>
               <About />
               <Possible />
               <Works data={worksData} />

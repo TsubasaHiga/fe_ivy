@@ -1,0 +1,9 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  @include mqw-down {
+    gap: 25px;
+  }
+}

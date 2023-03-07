@@ -6,8 +6,12 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: $main-w;
+  max-width: map.get($main-w, md);
   margin: 0 auto;
+
+  @include mqw-up(xlg) {
+    max-width: map.get($main-w, xlg);
+  }
 
   @include mqw-down {
     gap: 37px;

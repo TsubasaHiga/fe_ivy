@@ -2,23 +2,32 @@
   display: flex;
   flex-direction: column;
   gap: 152px;
-  max-width: $main-w;
-  padding-bottom: 60px;
+  max-width: map.get($main-w, md);
+  padding-bottom: 50px;
   margin: 0 auto;
+
+  @include mqw-up(xlg) {
+    max-width: map.get($main-w, xlg);
+  }
 
   @include mqw-down {
     gap: 120px;
+    padding-bottom: 40px;
 
     @include orientation {
       padding-bottom: 50px;
     }
   }
 
-  &.padding-minimal {
-    padding-bottom: 50px;
+  &:not(.home) {
+    margin-top: calc(46px + map.get($map: $header-h, $key: md));
 
     @include mqw-down {
-      padding-bottom: 40px;
+      margin-top: calc(45px + map.get($map: $header-h, $key: sm));
     }
+  }
+
+  &.home {
+    padding-bottom: 60px;
   }
 }

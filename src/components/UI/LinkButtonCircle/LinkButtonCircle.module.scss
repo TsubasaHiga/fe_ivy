@@ -20,4 +20,8 @@
       border-color: map.get($colors, 'color-black');
     }
   }
+
+  @include mqw-down {
+    padding-bottom: 4px;
+  }
 }

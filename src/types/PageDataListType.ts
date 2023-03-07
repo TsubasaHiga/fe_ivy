@@ -3,7 +3,7 @@ type HierarchyType = {
   path: string
 }
 
-export type PageNameType = 'top' | 'about'
+export type PageNameType = 'top' | 'news'
 
 type PageDataListType = {
   pageName: PageNameType

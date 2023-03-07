@@ -1,9 +1,13 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
   gap: 40px 20px;
   margin-top: 80px;
+
+  @include mqw-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   @include mqw-down {
     grid-template-columns: repeat(1, 1fr);

@@ -1,6 +1,10 @@
-// import { Inter } from 'next/font/google'
-
-import NewsDetail from '@components/NewsDetail/NewsDetail'
+import Article from '@components/Article/Article'
+import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
+import PageHead from '@components/PageHead/PageHead'
+import PageMeta from '@components/PageMeta/PageMeta'
+import PageNavigation from '@components/PageNavigation/PageNavigation'
+import PageTitle from '@components/PageTitle/PageTitle'
+import PageWrap from '@components/PageWrap/PageWrap'
 import Container from '@layouts/Container/Container'
 import Layout from '@layouts/Layout/Layout'
 import MainContainer from '@layouts/MainContainer/MainContainer'
@@ -9,8 +13,6 @@ import type { NewsResponse, NewsType } from '@type/NewsType'
 
 import { getNews } from '@/libs/microcms'
 
-// const inter = Inter({ subsets: ['latin'] })
-
 type Props = {
   id: string
   detailData: NewsType
@@ -18,13 +20,39 @@ type Props = {
 }
 
 export const Index = ({ id, detailData, newsResponseData }: Props) => {
+  // お知らせ一覧からidを元に前後のコンテンツを取得
+  const index = newsResponseData.contents.findIndex((content) => content.id === id)
+  const prev = newsResponseData.contents[index - 1] || {}
+  const next = newsResponseData.contents[index + 1] || {}
+
   return (
-    <Layout pageName="top">
+    <Layout pageName="news">
       <main>
         <Container>
           <Spacer>
-            <MainContainer isPaddingMinimal={true}>
-              <NewsDetail detailData={detailData} id={id} newsResponseData={newsResponseData} />
+            <MainContainer>
+              <PageWrap>
+                <PageHead>
+                  <PageTitle title={detailData.title} />
+                  <PageMeta pageType="article" publishedAt={detailData.publishedAt} updatedAt={detailData.updatedAt} />
+                </PageHead>
+                <Article content={detailData.content} />
+                <PageNavigation link="/news/" nextLink={next.id} prevLink={prev.id} title="お知らせ一覧へ" />
+                <Breadcrumbs
+                  lists={[
+                    {
+                      title: 'TOP'
+                    },
+                    {
+                      title: 'お知らせ',
+                      path: '/news/'
+                    },
+                    {
+                      title: detailData.title
+                    }
+                  ]}
+                />
+              </PageWrap>
             </MainContainer>
           </Spacer>
         </Container>

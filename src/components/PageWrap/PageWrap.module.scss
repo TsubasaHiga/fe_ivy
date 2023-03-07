@@ -1,0 +1,17 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+
+  @include mqw-down {
+    padding: 0 10px;
+  }
+
+  &.gap {
+    gap: 58px;
+
+    @include mqw-down {
+      gap: 45px;
+    }
+  }
+}
