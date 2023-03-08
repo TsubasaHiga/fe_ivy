@@ -18,9 +18,9 @@ const Footer = ({ title }: Props) => {
           <nav className={styles.nav}>
             <FooterMenu
               menuList={[
-                { title: '個人情報保護方針', link: '/privacy/' },
-                { title: '免責事項', link: '/disclaimer/' },
-                { title: 'サイトマップ', link: '/sitemap/' }
+                { title: '個人情報保護方針', link: '/pages/privacy' },
+                { title: '免責事項', link: '/pages/disclaimer' },
+                { title: 'サイトマップ', link: '/pages/sitemap' }
               ]}
             />
             <span className="u-mqw-up">｜</span>

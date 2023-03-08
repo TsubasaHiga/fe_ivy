@@ -3,8 +3,6 @@ import { BreadcrumbsType } from '@type/BreadcrumbsType'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-import { siteConfig } from '@/siteConfig'
-
 import styles from './Breadcrumbs.module.scss'
 
 type Props = {
@@ -13,7 +11,7 @@ type Props = {
 
 const Breadcrumbs = ({ lists }: Props): JSX.Element => {
   // 最初にpath追加
-  lists[0].path = siteConfig.siteUrl
+  lists[0].path = '/'
 
   return (
     <div className={clsx(styles.root, 'u-mqw-up')} typeof="BreadcrumbList" vocab="https://schema.org/">

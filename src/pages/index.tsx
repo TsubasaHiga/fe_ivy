@@ -9,12 +9,12 @@ import Container from '@layouts/Container/Container'
 import Layout from '@layouts/Layout/Layout'
 import MainContainer from '@layouts/MainContainer/MainContainer'
 import Spacer from '@layouts/Spacer/Spacer'
+import { getNews, getWorks } from '@libs/microcms'
 import type { NewsResponse } from '@type/NewsType'
 import type { WorksResponse } from '@type/WorksType'
-
-import { getNews, getWorks } from '@/libs/microcms'
-
 // const inter = Inter({ subsets: ['latin'] })
+import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
+import { NextSeo } from 'next-seo'
 
 type Props = {
   worksData: WorksResponse
@@ -22,8 +22,18 @@ type Props = {
 }
 
 export const Index = ({ worksData, newsData }: Props) => {
+  const { title, description } = GetPageDataFromPageDataList('top')
+
   return (
-    <Layout pageName="top">
+    <Layout>
+      <NextSeo
+        description={description}
+        openGraph={{
+          title: title,
+          description: description
+        }}
+        title={title}
+      />
       <main>
         <Container>
           <KV />

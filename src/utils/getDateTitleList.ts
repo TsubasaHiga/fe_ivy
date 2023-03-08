@@ -1,5 +1,5 @@
 import { pageKindListType } from '@const/values'
-import type { PageKindType } from '@type/PageType'
+import type { PageKindType } from '@type/PageKindType'
 
 const GetDateTitleList = (pageType: PageKindType) => {
   return {

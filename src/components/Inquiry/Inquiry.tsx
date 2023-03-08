@@ -1,5 +1,7 @@
+import InquiryCopyButton from '@components/InquiryCopyButton/InquiryCopyButton'
 import InquiryItem from '@components/InquiryItem/InquiryItem'
 import InquirySendArea from '@components/InquirySendArea/InquirySendArea'
+import InquirySendLink from '@components/InquirySendLink/InquirySendLink'
 import Section from '@components/Section/Section'
 import Select from '@components/UI/Select/Select'
 import TextArea from '@components/UI/TextArea/TextArea'
@@ -10,9 +12,6 @@ import GenInquiryValueToString from '@modules/GenInquiryValueToString'
 import type { InquiryKeyType, InquiryType } from '@type/InquiryType'
 import { useEffect, useState } from 'react'
 import { useCopyToClipboard } from 'usehooks-ts'
-
-import InquiryCopyButton from '@/components/InquiryCopyButton/InquiryCopyButton'
-import InquirySendLink from '@/components/InquirySendLink/InquirySendLink'
 
 import styles from './Inquiry.module.scss'
 

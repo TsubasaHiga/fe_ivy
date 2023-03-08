@@ -1,0 +1,86 @@
+.article {
+  @include fz(18, 32, 400);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include mqw-down {
+    @include fz(16, 28);
+  }
+
+  h2 {
+    @include fz(26, 38, 700);
+
+    @include mqw-down {
+      @include fz(20, 32);
+    }
+  }
+
+  h3 {
+    @include fz(20, 30, 700);
+    @include mqw-down {
+      @include fz(16, 28);
+    }
+  }
+
+  a {
+    @include hover-opacity;
+
+    text-decoration: underline;
+
+    &[target='_blank'] {
+      &::after {
+        @include icon-ini;
+
+        width: 13px;
+        height: 13px;
+        margin-right: 3px;
+        margin-left: 3px;
+        background-image: url('/assets/images/common/ico__blank.svg');
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+
+  ul,
+  ol {
+    padding: 20px 20px 20px 29px;
+    background-color: map.get($colors, 'color-light-gray');
+    border-radius: 8px;
+  }
+
+  ol {
+    list-style-position: inside;
+  }
+
+  ul {
+    list-style: '・';
+    list-style-position: inside;
+  }
+
+  code {
+    @include fz(16);
+
+    padding: 2px 4px;
+    margin: 0 2px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    background-color: map.get($colors, 'color-light-gray');
+    border-radius: 2px;
+  }
+
+  hr {
+    margin-bottom: 32px;
+    border-color: map.get($colors, 'color-border-light');
+    border-style: dashed;
+    border-width: 1px 0 0;
+  }
+
+  blockquote {
+    padding-left: 20px;
+    margin-bottom: 32px;
+    border-left: 4px solid map.get($colors, 'color-border-light');
+  }
+}

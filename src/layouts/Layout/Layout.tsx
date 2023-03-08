@@ -5,19 +5,17 @@ import Footer from '@components/Footer/Footer'
 import Head from '@components/Head/Head'
 import Header from '@components/Header/Header'
 import Inquiry from '@components/Inquiry/Inquiry'
-import type { PageNameType } from '@type/PageDataListType'
 
 import { siteConfig } from '@/siteConfig'
 
 type Props = {
-  pageName: PageNameType
   children: React.ReactNode
 }
 
-const Layout = ({ pageName, children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
-      <Head pageName={pageName} />
+      <Head />
       {/* <AnalyticsBody /> */}
       <Header />
       {children}

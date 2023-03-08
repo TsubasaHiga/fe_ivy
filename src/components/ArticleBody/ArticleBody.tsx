@@ -1,10 +1,11 @@
-import styles from './Article.module.scss'
+import styles from './ArticleBody.module.scss'
 
 type Props = {
   content: string
 }
 
-const Article = ({ content }: Props): JSX.Element => {
+const ArticleBody = ({ content }: Props): JSX.Element => {
+  // console.log(content)
   return (
     <article
       className={styles.article}
@@ -15,4 +16,4 @@ const Article = ({ content }: Props): JSX.Element => {
   )
 }
 
-export default Article
+export default ArticleBody

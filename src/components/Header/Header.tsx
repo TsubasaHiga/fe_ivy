@@ -22,11 +22,11 @@ const Header = () => {
                 {
                   title: 'ページ一覧',
                   list: [
-                    { title: 'お知らせ', link: '/news/' },
-                    { title: '実績一覧', displayDeviceType: 'sm', link: '/works/', icon: <CardMembershipIcon /> },
-                    { title: '個人情報保護方針', displayDeviceType: 'sm', link: '/privacy/' },
-                    { title: '免責事項', displayDeviceType: 'sm', link: '/works/' },
-                    { title: 'サイトマップ', displayDeviceType: 'sm', link: '/sitemap/' },
+                    { title: 'お知らせ', link: '/news' },
+                    { title: '実績一覧', displayDeviceType: 'sm', link: '/works', icon: <CardMembershipIcon /> },
+                    { title: '個人情報保護方針', displayDeviceType: 'sm', link: '/pages/privacy' },
+                    { title: '免責事項', displayDeviceType: 'sm', link: '/pages/disclaimer' },
+                    { title: 'サイトマップ', displayDeviceType: 'sm', link: '/pages/sitemap' },
                     { title: '技術ブログ', displayDeviceType: 'lg', link: links.BLOG, isBlank: true },
                     {
                       title: 'Chrome拡張機能リスト',

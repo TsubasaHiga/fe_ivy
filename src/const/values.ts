@@ -1,4 +1,4 @@
-import type { PageKindListTypeList } from '@type/PageType'
+import type { PageKindListTypeList } from '@/types/PageKindType'
 
 // 共通で使用する定数
 export const values = {

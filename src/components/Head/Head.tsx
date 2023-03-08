@@ -1,18 +1,9 @@
-import type { PageNameType } from '@type/PageDataListType'
-import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
 // import { default as NextHead } from 'next/head'
 import { NextSeo } from 'next-seo'
 
 import { siteConfig } from '@/siteConfig'
 
-type Props = {
-  pageName: PageNameType
-}
-
-const Head = ({ pageName }: Props) => {
-  const { title, description } = GetPageDataFromPageDataList(pageName)
-  // const { href, origin } = Astro.url
-
+const Head = () => {
   return (
     <NextSeo
       additionalLinkTags={[
@@ -28,7 +19,6 @@ const Head = ({ pageName }: Props) => {
         }
       ]}
       // canonical="https://www.canonical.ie/"
-      description={description}
       // openGraph={{
       //   url: 'https://www.url.ie/a',
       //   title: 'Open Graph Title',
@@ -53,7 +43,6 @@ const Head = ({ pageName }: Props) => {
       //   ],
       //   siteName: 'SiteName'
       // }}
-      title={title}
       twitter={siteConfig.twitter}
     />
     // <head>

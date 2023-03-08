@@ -1,4 +1,4 @@
-import Article from '@components/Article/Article'
+import ArticleBody from '@components/ArticleBody/ArticleBody'
 import Breadcrumbs from '@components/Breadcrumbs/Breadcrumbs'
 import PageHead from '@components/PageHead/PageHead'
 import PageMeta from '@components/PageMeta/PageMeta'
@@ -9,9 +9,10 @@ import Container from '@layouts/Container/Container'
 import Layout from '@layouts/Layout/Layout'
 import MainContainer from '@layouts/MainContainer/MainContainer'
 import Spacer from '@layouts/Spacer/Spacer'
+import { getNews } from '@libs/microcms'
+import { MarkdownToHtml } from '@modules/markdownToHtml'
 import type { NewsResponse, NewsType } from '@type/NewsType'
-
-import { getNews } from '@/libs/microcms'
+import { NextSeo } from 'next-seo'
 
 type Props = {
   id: string
@@ -19,14 +20,25 @@ type Props = {
   newsResponseData: NewsResponse
 }
 
-export const Index = ({ id, detailData, newsResponseData }: Props) => {
+export const NewsDetail = ({ id, detailData, newsResponseData }: Props) => {
   // お知らせ一覧からidを元に前後のコンテンツを取得
   const index = newsResponseData.contents.findIndex((content) => content.id === id)
   const prev = newsResponseData.contents[index - 1] || {}
   const next = newsResponseData.contents[index + 1] || {}
 
+  const title = detailData.title
+  const description = 'お知らせの詳細ページです。'
+
   return (
-    <Layout pageName="news">
+    <Layout>
+      <NextSeo
+        description={description}
+        openGraph={{
+          title: title,
+          description: description
+        }}
+        title={title}
+      />
       <main>
         <Container>
           <Spacer>
@@ -36,7 +48,7 @@ export const Index = ({ id, detailData, newsResponseData }: Props) => {
                   <PageTitle title={detailData.title} />
                   <PageMeta pageType="article" publishedAt={detailData.publishedAt} updatedAt={detailData.updatedAt} />
                 </PageHead>
-                <Article content={detailData.content} />
+                <ArticleBody content={detailData.content} />
                 <PageNavigation link="/news/" nextLink={next.id} prevLink={prev.id} title="お知らせ一覧へ" />
                 <Breadcrumbs
                   lists={[
@@ -61,7 +73,7 @@ export const Index = ({ id, detailData, newsResponseData }: Props) => {
   )
 }
 
-export default Index
+export default NewsDetail
 
 type Params = {
   params: {
@@ -89,10 +101,16 @@ export const getStaticProps = async ({ params }: Params) => {
   // newsResponseDataからidを元に詳細データを取得
   const detailData = newsResponseData.contents.find((content) => content.id === id)
 
+  // detailDataのcontentをHTMLに変換
+  const content = await MarkdownToHtml(detailData?.content || '')
+
   return {
     props: {
       id,
-      detailData,
+      detailData: {
+        ...detailData,
+        content
+      },
       newsResponseData
     }
   }

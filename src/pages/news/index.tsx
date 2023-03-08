@@ -10,6 +10,8 @@ import MainContainer from '@layouts/MainContainer/MainContainer'
 import Spacer from '@layouts/Spacer/Spacer'
 import { getNews } from '@libs/microcms'
 import type { NewsResponse } from '@type/NewsType'
+import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
+import { NextSeo } from 'next-seo'
 
 import styles from './index.module.scss'
 
@@ -18,8 +20,18 @@ type Props = {
 }
 
 export const Index = ({ data }: Props) => {
+  const { title, description } = GetPageDataFromPageDataList('news')
+
   return (
-    <Layout pageName="news">
+    <Layout>
+      <NextSeo
+        description={description}
+        openGraph={{
+          title: title,
+          description: description
+        }}
+        title={title}
+      />
       <main>
         <Container>
           <Spacer>
