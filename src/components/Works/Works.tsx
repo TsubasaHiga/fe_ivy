@@ -80,7 +80,10 @@ const Works = ({ data }: Props): JSX.Element => {
       <div className={styles.inner}>
         <div className={styles.head}>
           <p>全実績：{data.totalCount}件／開示：10件／非開示：80件</p>
-          <LoginButton />
+          <button className={styles.login}>
+            <span className="u-mqw-up">非開示案件を表示する</span>
+            <CardMembershipIcon />
+          </button>
         </div>
 
         <div className={styles['search-and-filter']}>
@@ -105,12 +108,3 @@ const Works = ({ data }: Props): JSX.Element => {
 }
 
 export default Works
-
-const LoginButton = (): JSX.Element => {
-  return (
-    <button className={styles.login}>
-      <span className="u-mqw-up">非開示案件を表示する</span>
-      <CardMembershipIcon />
-    </button>
-  )
-}

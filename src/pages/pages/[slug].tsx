@@ -24,14 +24,7 @@ export const Page = ({ pageData }: Props) => {
 
   return (
     <Layout>
-      <NextSeo
-        description={description}
-        openGraph={{
-          title: title,
-          description: description
-        }}
-        title={title}
-      />
+      <NextSeo description={description} openGraph={{ title, description }} title={title} />
       <main>
         <Container>
           <Spacer>

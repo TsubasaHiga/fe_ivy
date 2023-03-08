@@ -14,6 +14,9 @@ export const links = {
   // Chrome拡張機能リスト
   CHROME_EXTENSIONS: 'https://chrome-extensions.cofus.work',
 
+  // Slim Chatwork公式サイト
+  SLIM_CHATWORK: 'https://slimchatwork.cofus.work',
+
   // GitHub
   GITHUB: 'https://github.com/TsubasaHiga',
 

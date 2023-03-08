@@ -20,7 +20,7 @@ const Footer = ({ title }: Props) => {
               menuList={[
                 { title: '個人情報保護方針', link: '/pages/privacy' },
                 { title: '免責事項', link: '/pages/disclaimer' },
-                { title: 'サイトマップ', link: '/pages/sitemap' }
+                { title: 'サイトマップ', link: '/sitemap' }
               ]}
             />
             <span className="u-mqw-up">｜</span>

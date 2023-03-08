@@ -13,5 +13,11 @@ export const pageDataList: PageDataListType[] = [
     pageName: 'news',
     title: 'お知らせ',
     description: 'お知らせページのディスクリプションです。'
+  },
+  // sitemap
+  {
+    pageName: 'sitemap',
+    title: 'サイトマップ',
+    description: '愛とマップのディスクリプションです。'
   }
 ]

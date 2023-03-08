@@ -1,0 +1,72 @@
+.item {
+  display: flex;
+}
+
+.link {
+  @include fz(20, 30, 700);
+  @include hover-opacity;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: underline;
+
+  @include mqw-down {
+    @include fz(16, 20);
+
+    gap: 5px;
+  }
+
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: map.get($colors, 'color-gray');
+    border: 1px solid currentcolor;
+    border-radius: 50%;
+
+    @include mqw-down {
+      width: 20px;
+      height: 20px;
+    }
+
+    svg {
+      font-size: 14px;
+      @include mqw-down {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &.large {
+    @include fz(26, 38, 700);
+
+    gap: 10px;
+
+    @include mqw-down {
+      @include fz(20, 28);
+
+      gap: 5px;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+
+      @include mqw-down {
+        width: 24px;
+        height: 24px;
+      }
+
+      svg {
+        font-size: 18px;
+        @include mqw-down {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

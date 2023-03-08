@@ -19,19 +19,12 @@ type Props = {
   data: NewsResponse
 }
 
-export const Index = ({ data }: Props) => {
+export const News = ({ data }: Props) => {
   const { title, description } = GetPageDataFromPageDataList('news')
 
   return (
     <Layout>
-      <NextSeo
-        description={description}
-        openGraph={{
-          title: title,
-          description: description
-        }}
-        title={title}
-      />
+      <NextSeo description={description} openGraph={{ title, description }} title={title} />
       <main>
         <Container>
           <Spacer>
@@ -63,7 +56,7 @@ export const Index = ({ data }: Props) => {
   )
 }
 
-export default Index
+export default News
 
 export const getStaticProps = async () => {
   // お知らせ覧取得
