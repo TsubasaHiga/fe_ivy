@@ -14,7 +14,6 @@ const GlobalMenu = ({ menuList }: Props) => {
   // 現在のページ情報を取得する
   const router = useRouter()
   const { asPath } = router
-  console.log(asPath)
 
   return (
     <nav className={styles.nav}>

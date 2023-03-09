@@ -46,6 +46,7 @@
     "microcms-js-sdk": "^2.3.2",
     "nanostores": "^0.7.4",
     "next": "13.2.3",
+    "next-auth": "^4.20.1",
     "next-seo": "^5.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,0 +1,110 @@
+.login {
+  @include mqw-up {
+    position: relative;
+  }
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+
+  // background-color: map.get($colors, 'color-white');
+  border: 1px dashed map.get($colors, 'color-black');
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px transparent;
+  transition: box-shadow $com-ms $com-es;
+
+  @include mqw-down {
+    width: 45px;
+    height: 45px;
+  }
+
+  @include canhover {
+    &:hover {
+      box-shadow: 0 0 0 8px map.get($colors, 'color-light-gray');
+    }
+  }
+
+  &.active {
+    @include mqw-up {
+      box-shadow: 0 0 0 8px map.get($colors, 'color-light-gray');
+    }
+  }
+
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: map.get($colors, 'color-black');
+    border-radius: 50%;
+
+    svg {
+      font-size: 32px;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 61px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px 12px;
+  visibility: hidden;
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 8%);
+  opacity: 0;
+  transition: opacity $com-ms $com-es, translate $com-ms $com-es, visibility $com-ms $com-es;
+  translate: 0 -10px;
+
+  @include mqw-down {
+    top: 75px;
+    right: 10px + map.get($map: $space, $key: sm);
+    padding: 0 10px 10px;
+  }
+  @include mqw-down(xs) {
+    right: 10px + map.get($map: $space, $key: xs);
+  }
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .name {
+    @include fz(14, 14, 700);
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 29px 15px 25px;
+
+    @include mqw-down {
+      padding: 24px 15px 20px;
+    }
+  }
+
+  .button {
+    @include fz(18);
+
+    width: 100%;
+    min-width: 180px;
+    height: 42px;
+    border-radius: 6px;
+
+    @include mqw-down {
+      @include fz(16);
+
+      height: 40px;
+    }
+  }
+}
