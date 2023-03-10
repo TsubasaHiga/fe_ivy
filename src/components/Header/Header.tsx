@@ -6,6 +6,7 @@ import { links, snsLinks } from '@const/values'
 import Spacer from '@layouts/Spacer/Spacer'
 import CardMembershipIcon from '@mui/icons-material/CardMembership'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './Header.module.scss'
 
@@ -59,4 +60,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

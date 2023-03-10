@@ -1,7 +1,7 @@
 import Button from '@components/UI/Button/Button'
 import { careerList } from '@const/Career'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import styles from './CareerList.module.scss'
 
@@ -36,4 +36,4 @@ const CareerList = (): JSX.Element => {
   )
 }
 
-export default CareerList
+export default memo(CareerList)

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './InquiryItem.module.scss'
 
@@ -20,4 +21,4 @@ const InquiryItem = ({ name, required, children }: Props) => {
   )
 }
 
-export default InquiryItem
+export default memo(InquiryItem)

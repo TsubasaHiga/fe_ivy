@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './LinkButtonSquare.module.scss'
 
@@ -24,4 +25,4 @@ const LinkButtonSquare = ({ className, title, link, isBlank = false }: Props) =>
   )
 }
 
-export default LinkButtonSquare
+export default memo(LinkButtonSquare)

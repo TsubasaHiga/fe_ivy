@@ -1,4 +1,5 @@
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
+import { memo } from 'react'
 
 import styles from './InquirySendArea.module.scss'
 
@@ -22,4 +23,4 @@ const InquirySendArea = ({ children, disabled }: Props) => {
   )
 }
 
-export default InquirySendArea
+export default memo(InquirySendArea)

@@ -2,6 +2,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import { BreadcrumbsType } from '@type/BreadcrumbsType'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './Breadcrumbs.module.scss'
 
@@ -30,7 +31,7 @@ const Breadcrumbs = ({ lists }: Props): JSX.Element => {
   )
 }
 
-export default Breadcrumbs
+export default memo(Breadcrumbs)
 
 const Item = ({ item, hasLink }: { item: BreadcrumbsType; hasLink: boolean }) => {
   if (hasLink) {

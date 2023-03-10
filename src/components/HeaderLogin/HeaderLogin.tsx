@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import clsx from 'clsx'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { useRef, useState } from 'react'
+import { memo, useRef, useState } from 'react'
 import { useClickAnyWhere } from 'usehooks-ts'
 
 import styles from './HeaderLogin.module.scss'
@@ -59,4 +59,4 @@ const HeaderLogin = () => {
   )
 }
 
-export default HeaderLogin
+export default memo(HeaderLogin)

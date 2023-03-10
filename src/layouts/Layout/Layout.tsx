@@ -5,6 +5,7 @@ import Footer from '@components/Footer/Footer'
 import Head from '@components/Head/Head'
 import Header from '@components/Header/Header'
 import Inquiry from '@components/Inquiry/Inquiry'
+import { memo } from 'react'
 
 import { siteConfig } from '@/siteConfig'
 
@@ -26,4 +27,4 @@ const Layout = ({ children }: Props) => {
   )
 }
 
-export default Layout
+export default memo(Layout)

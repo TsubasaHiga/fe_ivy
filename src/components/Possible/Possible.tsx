@@ -1,6 +1,7 @@
 import PossibleItem from '@components/PossibleItem/PossibleItem'
 import Section from '@components/Section/Section'
 import { possibleList } from '@const/PossibleList'
+import { memo } from 'react'
 
 import styles from './Possible.module.scss'
 
@@ -16,4 +17,4 @@ const Possible = () => {
   )
 }
 
-export default Possible
+export default memo(Possible)

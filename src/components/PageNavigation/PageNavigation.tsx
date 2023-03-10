@@ -2,6 +2,7 @@ import LinkButtonCircle from '@components/UI/LinkButtonCircle/LinkButtonCircle'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './PageNavigation.module.scss'
 
@@ -34,4 +35,4 @@ const PageNavigation = ({ prevLink, nextLink, link, title }: Props): JSX.Element
   )
 }
 
-export default PageNavigation
+export default memo(PageNavigation)

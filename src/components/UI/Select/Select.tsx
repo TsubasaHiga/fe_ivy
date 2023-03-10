@@ -1,6 +1,6 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import styles from './Select.module.scss'
 
@@ -37,4 +37,4 @@ const Select = ({ options, onChange, addClassName }: Props) => {
   )
 }
 
-export default Select
+export default memo(Select)

@@ -2,7 +2,7 @@ import CareerList from '@components/CareerList/CareerList'
 import Section from '@components/Section/Section'
 import SectionTitle from '@components/SectionTitle/SectionTitle'
 import LinkButtonSquare from '@components/UI/LinkButtonSquare/LinkButtonSquare'
-import { useCallback, useRef } from 'react'
+import { memo, useCallback, useRef } from 'react'
 
 import { snsLinks } from '@/const/values'
 
@@ -41,4 +41,4 @@ const About = () => {
   )
 }
 
-export default About
+export default memo(About)

@@ -1,6 +1,7 @@
 import { PageKindType } from '@type/PageKindType'
 import ChangeDateStringToSpecificFormat from '@utils/changeDateStringToSpecificFormat'
 import GetDateTitleList from '@utils/getDateTitleList'
+import { memo } from 'react'
 
 import styles from './PageMeta.module.scss'
 
@@ -35,4 +36,4 @@ const PageMeta = ({ pageType, publishedAt, updatedAt }: Props) => {
   )
 }
 
-export default PageMeta
+export default memo(PageMeta)

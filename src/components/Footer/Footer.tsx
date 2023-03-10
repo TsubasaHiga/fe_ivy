@@ -1,6 +1,7 @@
 import FooterMenu from '@components/FooterMenu/FooterMenu'
 import { links, snsLinks } from '@const/values'
 import Spacer from '@layouts/Spacer/Spacer'
+import { memo } from 'react'
 
 import styles from './Footer.module.scss'
 
@@ -41,4 +42,4 @@ const Footer = ({ title }: Props) => {
   )
 }
 
-export default Footer
+export default memo(Footer)

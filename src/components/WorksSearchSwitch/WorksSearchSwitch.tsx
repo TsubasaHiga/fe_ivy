@@ -4,7 +4,7 @@ import { useStore } from '@nanostores/react'
 import { resetSelectedCategory } from '@store/atoms/worksState'
 import { worksState } from '@store/atoms/worksState'
 import clsx from 'clsx'
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 
 import styles from './WorksSearchSwitch.module.scss'
 
@@ -39,4 +39,4 @@ const WorksSearchSwitch = (): JSX.Element => {
   )
 }
 
-export default WorksSearchSwitch
+export default memo(WorksSearchSwitch)

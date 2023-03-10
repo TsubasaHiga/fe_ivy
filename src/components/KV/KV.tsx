@@ -1,6 +1,7 @@
 import EmployText from '@components/Icons/EmployText'
 import NameText from '@components/Icons/NameText'
 import Spacer from '@layouts/Spacer/Spacer'
+import { memo } from 'react'
 
 import styles from './KV.module.scss'
 
@@ -21,4 +22,4 @@ const KV = () => {
   )
 }
 
-export default KV
+export default memo(KV)

@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import styles from './Spacer.module.scss'
 
 type Props = {
@@ -8,4 +10,4 @@ const Spacer = ({ children }: Props) => {
   return <div className={styles.spacer}>{children}</div>
 }
 
-export default Spacer
+export default memo(Spacer)

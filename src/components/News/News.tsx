@@ -2,6 +2,7 @@ import NewsList from '@components/NewsList/NewsList'
 import Section from '@components/Section/Section'
 import LinkButtonCircle from '@components/UI/LinkButtonCircle/LinkButtonCircle'
 import type { NewsResponse } from '@type/NewsType'
+import { memo } from 'react'
 
 import styles from './News.module.scss'
 
@@ -24,4 +25,4 @@ const News = ({ data }: Props): JSX.Element => {
   )
 }
 
-export default News
+export default memo(News)

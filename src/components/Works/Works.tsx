@@ -3,6 +3,7 @@ import WorksLogin from '@components/WorksLogin/WorksLogin'
 import WorksMain from '@components/WorksMain/WorksMain'
 import WorksMeta from '@components/WorksMeta/WorksMeta'
 import type { CustomWorksResponse } from '@type/WorksType'
+import { memo } from 'react'
 
 import styles from './Works.module.scss'
 
@@ -26,4 +27,4 @@ const Works = ({ data }: Props): JSX.Element => {
   )
 }
 
-export default Works
+export default memo(Works)

@@ -1,5 +1,6 @@
 import type { MenuItemType } from '@type/GlobalMenuType'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './FooterMenuItem.module.scss'
 
@@ -23,4 +24,4 @@ const FooterMenuItem = ({ item }: Props) => {
   )
 }
 
-export default FooterMenuItem
+export default memo(FooterMenuItem)

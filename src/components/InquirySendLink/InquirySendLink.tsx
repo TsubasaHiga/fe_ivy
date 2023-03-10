@@ -1,5 +1,6 @@
 import LaunchIcon from '@mui/icons-material/Launch'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './InquirySendLink.module.scss'
 
@@ -27,4 +28,4 @@ const InquirySendLink = ({ text, link, disabled }: Props) => {
   )
 }
 
-export default InquirySendLink
+export default memo(InquirySendLink)

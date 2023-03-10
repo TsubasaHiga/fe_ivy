@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { siteState, updateSiteState } from '@store/atoms/siteState'
 import clsx from 'clsx'
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { useLockedBody } from 'usehooks-ts'
 
 import styles from './MenuButton.module.scss'
@@ -44,4 +44,4 @@ const MenuButton = (): JSX.Element => {
   )
 }
 
-export default MenuButton
+export default memo(MenuButton)

@@ -3,7 +3,7 @@ import { addSelectedCategory, updateSelectedCategory, worksState } from '@store/
 import type { CustomWorksResponse } from '@type/WorksType'
 import SetScrollPositionToCenter from '@utils/setScrollPositionToCenter'
 import clsx from 'clsx'
-import { useCallback, useEffect, useMemo, useRef } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react'
 
 import styles from './WorksFilter.module.scss'
 
@@ -98,4 +98,4 @@ const WorksFilter = ({ data }: Props): JSX.Element => {
   )
 }
 
-export default WorksFilter
+export default memo(WorksFilter)

@@ -1,5 +1,6 @@
 import CardMembershipIcon from '@mui/icons-material/CardMembership'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './WorksLogin.module.scss'
 
@@ -12,4 +13,4 @@ const WorksLogin = (): JSX.Element => {
   )
 }
 
-export default WorksLogin
+export default memo(WorksLogin)

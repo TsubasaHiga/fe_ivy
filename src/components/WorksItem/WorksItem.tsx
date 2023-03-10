@@ -5,7 +5,7 @@ import { updateSelectedCategory } from '@store/atoms/worksState'
 import type { WorksType } from '@type/WorksType'
 import ChangeDateStringToSpecificFormat from '@utils/changeDateStringToSpecificFormat'
 import clsx from 'clsx'
-import { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 
 import styles from './WorksItem.module.scss'
 
@@ -106,4 +106,4 @@ const WorksItem = ({ item, index, isOpen, onClick }: Props): JSX.Element => {
   )
 }
 
-export default WorksItem
+export default memo(WorksItem)

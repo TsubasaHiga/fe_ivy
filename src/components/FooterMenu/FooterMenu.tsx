@@ -1,5 +1,6 @@
 import FooterMenuItem from '@components/FooterMenuItem/FooterMenuItem'
 import type { MenuItemType } from '@type/GlobalMenuType'
+import { memo } from 'react'
 
 import styles from './FooterMenu.module.scss'
 type Props = {
@@ -16,4 +17,4 @@ const FooterMenu = ({ menuList }: Props) => {
   )
 }
 
-export default FooterMenu
+export default memo(FooterMenu)

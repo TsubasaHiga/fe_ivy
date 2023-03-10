@@ -1,4 +1,5 @@
 import SectionTitle from '@components/SectionTitle/SectionTitle'
+import { memo } from 'react'
 
 import styles from './Section.module.scss'
 
@@ -18,4 +19,4 @@ const Section = ({ id, title, children, sectionRef }: Props) => {
   )
 }
 
-export default Section
+export default memo(Section)

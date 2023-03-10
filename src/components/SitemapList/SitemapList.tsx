@@ -1,5 +1,6 @@
 import SitemapItem from '@components/SitemapItem/SitemapItem'
 import type { SitemapListType } from '@type/SitemapListType'
+import { memo } from 'react'
 
 import styles from './SitemapList.module.scss'
 
@@ -19,7 +20,7 @@ const SitemapList = ({ menuList }: Props) => {
   )
 }
 
-export default SitemapList
+export default memo(SitemapList)
 
 const MenuList = ({ menu }: { menu: SitemapListType }) => {
   return (

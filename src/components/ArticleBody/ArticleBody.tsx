@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import styles from './ArticleBody.module.scss'
 
 type Props = {
@@ -16,4 +18,4 @@ const ArticleBody = ({ content }: Props): JSX.Element => {
   )
 }
 
-export default ArticleBody
+export default memo(ArticleBody)

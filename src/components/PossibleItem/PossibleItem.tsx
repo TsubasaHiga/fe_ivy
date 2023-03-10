@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { memo } from 'react'
 
 import type { PossibleItemType } from '@/types/PossibleItemType'
 
@@ -25,4 +26,4 @@ const PossibleItem = ({ item }: Props) => {
   )
 }
 
-export default PossibleItem
+export default memo(PossibleItem)

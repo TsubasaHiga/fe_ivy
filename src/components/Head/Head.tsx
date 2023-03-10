@@ -1,5 +1,6 @@
 // import { default as NextHead } from 'next/head'
 import { NextSeo } from 'next-seo'
+import { memo } from 'react'
 
 import { siteConfig } from '@/siteConfig'
 
@@ -82,4 +83,4 @@ const Head = () => {
   )
 }
 
-export default Head
+export default memo(Head)

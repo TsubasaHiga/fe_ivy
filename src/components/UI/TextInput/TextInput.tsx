@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './TextInput.module.scss'
 
@@ -14,4 +15,4 @@ const TextInput = ({ placeholder, onChange, addClassName }: Props) => {
   )
 }
 
-export default TextInput
+export default memo(TextInput)

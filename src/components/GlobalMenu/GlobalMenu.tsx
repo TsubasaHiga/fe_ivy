@@ -3,6 +3,7 @@ import type { MenuListType } from '@type/GlobalMenuType'
 import GetDeviceTypeClassName from '@utils/getDeviceTypeClassName'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import { memo } from 'react'
 
 import styles from './GlobalMenu.module.scss'
 
@@ -26,7 +27,7 @@ const GlobalMenu = ({ menuList }: Props) => {
   )
 }
 
-export default GlobalMenu
+export default memo(GlobalMenu)
 
 const MenuList = ({ menu, asPath }: { menu: MenuListType; asPath: string }) => {
   const { displayDeviceType } = menu

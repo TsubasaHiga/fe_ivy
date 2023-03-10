@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './TextArea.module.scss'
 
@@ -12,4 +13,4 @@ const TextArea = ({ placeholder, onChange, addClassName }: Props) => {
   return <textarea className={clsx(styles.textarea, addClassName)} onChange={onChange} placeholder={placeholder} />
 }
 
-export default TextArea
+export default memo(TextArea)

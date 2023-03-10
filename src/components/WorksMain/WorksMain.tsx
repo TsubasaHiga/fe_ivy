@@ -5,7 +5,7 @@ import WorksSearchSwitch from '@components/WorksSearchSwitch/WorksSearchSwitch'
 import { useStore } from '@nanostores/react'
 import { getSelectedCategory, resetSelectedCategory, worksState } from '@store/atoms/worksState'
 import type { CustomWorksResponse, WorksType } from '@type/WorksType'
-import { useEffect, useMemo, useState } from 'react'
+import { memo, useEffect, useMemo, useState } from 'react'
 
 import styles from './WorksMain.module.scss'
 
@@ -111,4 +111,4 @@ const WorksMain = ({ data }: Props): JSX.Element => {
   )
 }
 
-export default WorksMain
+export default memo(WorksMain)

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './PageTitle.module.scss'
 
@@ -15,4 +16,4 @@ const PageTitle = ({ title, addClassName }: Props) => {
   )
 }
 
-export default PageTitle
+export default memo(PageTitle)

@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import styles from './Container.module.scss'
 
 type Props = {
@@ -8,4 +10,4 @@ const Container = ({ children }: Props) => {
   return <div className={styles.container}>{children}</div>
 }
 
-export default Container
+export default memo(Container)

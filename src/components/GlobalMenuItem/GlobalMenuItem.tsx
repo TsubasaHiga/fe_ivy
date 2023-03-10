@@ -4,6 +4,7 @@ import type { MenuItemType } from '@type/GlobalMenuType'
 import GetDeviceTypeClassName from '@utils/getDeviceTypeClassName'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './GlobalMenuItem.module.scss'
 
@@ -38,4 +39,4 @@ const GlobalMenuItem = ({ item, asPath }: Props) => {
   )
 }
 
-export default GlobalMenuItem
+export default memo(GlobalMenuItem)

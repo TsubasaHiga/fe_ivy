@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './MainContainer.module.scss'
 
@@ -11,4 +12,4 @@ const MainContainer = ({ isHome, children }: Props) => {
   return <div className={clsx(styles['main-container'], isHome && styles.home)}>{children}</div>
 }
 
-export default MainContainer
+export default memo(MainContainer)

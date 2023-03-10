@@ -2,6 +2,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import type { NewsType } from '@type/NewsType'
 import ChangeDateStringToSpecificFormat from '@utils/changeDateStringToSpecificFormat'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './NewsItem.module.scss'
 
@@ -30,4 +31,4 @@ const NewsItem = ({ item }: Props): JSX.Element => {
   )
 }
 
-export default NewsItem
+export default memo(NewsItem)

@@ -1,5 +1,6 @@
 import NewsItem from '@components/NewsItem/NewsItem'
 import type { NewsResponse, NewsType } from '@type/NewsType'
+import { memo } from 'react'
 
 import styles from './NewsList.module.scss'
 
@@ -17,4 +18,4 @@ const NewsList = ({ data }: Props): JSX.Element => {
   )
 }
 
-export default NewsList
+export default memo(NewsList)

@@ -1,5 +1,6 @@
 import Button from '@components/UI/Button/Button'
 import { signIn } from 'next-auth/react'
+import { memo } from 'react'
 
 import styles from './UnauthenticatedContent.module.scss'
 
@@ -21,4 +22,4 @@ const UnauthenticatedContent = () => {
   )
 }
 
-export default UnauthenticatedContent
+export default memo(UnauthenticatedContent)

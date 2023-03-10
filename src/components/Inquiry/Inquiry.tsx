@@ -10,7 +10,7 @@ import { links, snsLinks } from '@const/values'
 import Spacer from '@layouts/Spacer/Spacer'
 import GenInquiryValueToString from '@modules/GenInquiryValueToString'
 import type { InquiryKeyType, InquiryType } from '@type/InquiryType'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useCopyToClipboard } from 'usehooks-ts'
 
 import styles from './Inquiry.module.scss'
@@ -131,4 +131,4 @@ const Inquiry = () => {
   )
 }
 
-export default Inquiry
+export default memo(Inquiry)

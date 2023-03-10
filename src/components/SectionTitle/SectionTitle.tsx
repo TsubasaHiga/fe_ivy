@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 import styles from './SectionTitle.module.scss'
 
@@ -22,4 +23,4 @@ const SectionTitle = ({ title, addClassName, onClick }: Props) => {
   )
 }
 
-export default SectionTitle
+export default memo(SectionTitle)

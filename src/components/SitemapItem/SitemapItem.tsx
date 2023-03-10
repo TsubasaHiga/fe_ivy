@@ -2,6 +2,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import type { MenuItemType } from '@type/GlobalMenuType'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './SitemapItem.module.scss'
 
@@ -31,4 +32,4 @@ const SitemapItem = ({ item, isLarge = false }: Props) => {
   )
 }
 
-export default SitemapItem
+export default memo(SitemapItem)
