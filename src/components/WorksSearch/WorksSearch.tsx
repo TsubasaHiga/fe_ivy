@@ -6,11 +6,11 @@ import { memo, useEffect, useState } from 'react'
 import styles from './WorksSearch.module.scss'
 
 type Props = {
+  value: string
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   onCompositionStart?: (e: React.CompositionEvent<HTMLInputElement>) => void
   onCompositionEnd?: (e: React.CompositionEvent<HTMLInputElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 const placeholder = {
@@ -18,7 +18,7 @@ const placeholder = {
   sm: 'キーワードで絞り込む'
 }
 
-const WorksSearch = ({ onKeyDown, onCompositionStart, onCompositionEnd, onChange, onBlur }: Props): JSX.Element => {
+const WorksSearch = ({ value, onKeyDown, onCompositionStart, onCompositionEnd, onChange }: Props): JSX.Element => {
   const deviceType = useDeviceType()
   const [placeHolder, setPlaceHolder] = useState<string>(placeholder.lg)
 
@@ -31,21 +31,22 @@ const WorksSearch = ({ onKeyDown, onCompositionStart, onCompositionEnd, onChange
       <input
         className={styles.input}
         onBlur={() => {
-          setPlaceHolder(placeholder[deviceType])
+          // setPlaceHolder(placeholder[deviceType])
         }}
         onChange={onChange}
         onClick={() => {
           // 押下時にカテゴリーをリセット
           resetSelectedCategory()
 
-          // 押下時にplaceholderを変更
-          setPlaceHolder('Enter or Returnで検索')
+          // // 押下時にplaceholderを変更
+          // setPlaceHolder('Enter or Returnで検索')
         }}
         onCompositionEnd={onCompositionEnd}
         onCompositionStart={onCompositionStart}
         onKeyDown={onKeyDown}
         placeholder={placeHolder}
         type="text"
+        value={value}
       />
     </div>
   )

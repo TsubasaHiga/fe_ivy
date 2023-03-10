@@ -1,12 +1,12 @@
 import type { DeviceType } from '@type/DeviceType'
 import GetDeviceType from '@utils/getDeviceType'
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // ウインドウサイズが変化した際にGetDeviceTypeを実行し、値に変化がある時だけstateを更新する
 const useDeviceType = () => {
   const [deviceType, setDeviceType] = useState<DeviceType>('lg')
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setDeviceType(GetDeviceType())
 
     const handleResize = () => {

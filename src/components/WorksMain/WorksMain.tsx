@@ -3,9 +3,9 @@ import WorksItem from '@components/WorksItem/WorksItem'
 import WorksSearch from '@components/WorksSearch/WorksSearch'
 import WorksSearchSwitch from '@components/WorksSearchSwitch/WorksSearchSwitch'
 import { useStore } from '@nanostores/react'
-import { getSelectedCategory, worksState } from '@store/atoms/worksState'
+import { getSelectedCategory, resetSelectedCategory, worksState } from '@store/atoms/worksState'
 import type { CustomWorksResponse, WorksType } from '@type/WorksType'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import styles from './WorksMain.module.scss'
 
@@ -40,6 +40,7 @@ type Props = {
 const WorksMain = ({ data }: Props): JSX.Element => {
   // console.log(data)
   const $workState = useStore(worksState)
+  const { isSearchFormOpen, selectedCategoryList } = $workState
 
   // WorksItemの開閉状態のindexを管理
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -47,6 +48,7 @@ const WorksMain = ({ data }: Props): JSX.Element => {
   // 検索ワードのstate
   const [searchWord, setSearchWord] = useState<string>('')
 
+  // フィルタリング
   const filterWorksData = useMemo((): WorksType[] => {
     if (!data) return []
 
@@ -72,22 +74,25 @@ const WorksMain = ({ data }: Props): JSX.Element => {
     return filteredWorks
   }, [$workState, data, searchWord])
 
-  const searchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.nativeEvent.isComposing || e.key !== 'Enter') return
-    setSearchWord((e.target as HTMLInputElement).value)
-  }
+  // isSearchFormOpenが変更された時の処理
+  useEffect(() => {
+    if (isSearchFormOpen) {
+      // isSearchFormOpenがtrueの時はカテゴリーをリセット
+      resetSelectedCategory()
+    } else {
+      // isSearchFormOpenがfalseの時（検索フィールドを閉じた時）に検索ワードを空にする
+      setSearchWord('')
+    }
+  }, [isSearchFormOpen])
+
+  // selectedCategoryListが変更された時に検索ワードを空にする
+  useEffect(() => setSearchWord(''), [selectedCategoryList])
 
   return (
     <div className={styles.main}>
       <div className={styles['search-and-filter']}>
         <WorksSearchSwitch />
-        <WorksSearch
-          onChange={(e) => {
-            // 検索ワードが空の場合は検索ワードを空にする
-            if ((e.target as HTMLInputElement).value === '') setSearchWord('')
-          }}
-          onKeyDown={searchHandler}
-        />
+        <WorksSearch onChange={(e) => setSearchWord(e.target.value)} value={searchWord} />
         <WorksFilter data={data} />
       </div>
 

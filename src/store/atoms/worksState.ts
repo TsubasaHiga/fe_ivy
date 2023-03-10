@@ -3,6 +3,7 @@ import { atom } from 'nanostores'
 
 export type WorksStateType = {
   selectedCategoryList: SelectedCategoryListType[]
+  isSearchFormOpen: boolean
 }
 export const worksState = atom<WorksStateType>({
   // 選択されているカテゴリー
@@ -12,7 +13,10 @@ export const worksState = atom<WorksStateType>({
       name: '全て',
       isSelected: true
     }
-  ]
+  ],
+
+  // 検索フォームの開閉ステータス
+  isSearchFormOpen: false
 })
 
 // selectedCategoryListに追加する
