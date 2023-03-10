@@ -20,7 +20,7 @@
   }
 
   &:not(.home) {
-    margin-top: calc(46px + map.get($map: $header-h, $key: md));
+    margin-top: calc(32px + map.get($map: $header-h, $key: md));
 
     @include mqw-down {
       margin-top: calc(45px + map.get($map: $header-h, $key: sm));

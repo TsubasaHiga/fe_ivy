@@ -1,5 +1,7 @@
 import Button from '@components/UI/Button/Button'
 import FaceIcon from '@mui/icons-material/Face'
+import Avatar from '@mui/material/Avatar'
+import Tooltip from '@mui/material/Tooltip'
 import clsx from 'clsx'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRef, useState } from 'react'
@@ -20,7 +22,7 @@ const HeaderLogin = () => {
   const clickHandler = () => {
     // ログインしていない場合はログイン画面へ
     if (status !== 'authenticated') {
-      signIn('auth0')
+      signIn('auth0', undefined, { prompt: 'login' })
       return
     }
 
@@ -37,21 +39,23 @@ const HeaderLogin = () => {
   })
 
   return (
-    <div className={styles.login} ref={loginRef}>
-      <button className={clsx(styles.avatar, isNavOpen && styles.active)} onClick={clickHandler} title="詳細を開く">
-        <span className={styles.image}>
-          {status === 'authenticated' && session.user && session.user.image && session.user.name ? (
-            <img alt={session.user?.name} src={session.user?.image} />
-          ) : (
-            <FaceIcon />
-          )}
-        </span>
-      </button>
-      <nav className={clsx(styles.nav, isNavOpen && styles.open)}>
-        {status === 'authenticated' && <p className={styles.name}>{session.user?.email}</p>}
-        <Button className={styles.button} onClick={() => signOut()} text="ログアウト" />
-      </nav>
-    </div>
+    <Tooltip arrow title={status !== 'authenticated' && 'ログインする'}>
+      <div className={styles.login} ref={loginRef}>
+        <button className={clsx(styles.avatar, isNavOpen && styles.active)} onClick={clickHandler} title="詳細を開く">
+          <span className={styles.image}>
+            {status === 'authenticated' ? (
+              <Avatar alt={session!.user!.email!} src={session!.user!.image!} />
+            ) : (
+              <FaceIcon />
+            )}
+          </span>
+        </button>
+        <nav className={clsx(styles.nav, isNavOpen && styles.open)}>
+          {status === 'authenticated' && <p className={styles.name}>{session.user?.email}</p>}
+          <Button className={styles.button} onClick={() => signOut()} text="ログアウト" />
+        </nav>
+      </div>
+    </Tooltip>
   )
 }
 

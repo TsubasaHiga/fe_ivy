@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  @include mqw-down {
+    flex-direction: column-reverse;
+  }
+}
+
+.search-and-filter {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+
+  @include mqw-down {
+    position: sticky;
+    bottom: 15px;
+    gap: 5px;
+    height: 74px;
+    padding: 10px;
+    background-color: map.get($colors, 'color-white');
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 15%);
+
+    @include orientation {
+      $space: 20px;
+
+      width: calc(100% - $space * 2);
+      margin: 0 $space;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

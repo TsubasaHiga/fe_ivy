@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  min-width: 56px;
+  height: 100%;
+  color: rgba(map.get($colors, 'color-dark-text'), 0.3);
+  background-color: map.get($colors, 'color-light-gray');
+  border-radius: 10px;
+  transition: background-color $com-ms $com-es, color $com-ms $com-es;
+
+  @include canhover {
+    &:hover {
+      color: map.get($colors, 'color-white');
+      background-color: map.get($colors, 'color-black');
+    }
+  }
+
+  @include mqw-down {
+    border-radius: 6px;
+  }
+
+  svg {
+    font-size: 26px;
+  }
+}

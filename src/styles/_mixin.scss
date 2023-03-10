@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 @forward 'mixins/arrow';
 @forward 'mixins/browser/is-edge';
 @forward 'mixins/browser/is-firefox';
@@ -17,6 +16,7 @@
 @forward 'mixins/icon-ini';
 @forward 'mixins/is-loaded';
 @forward 'mixins/is-open-menu';
+@forward 'mixins/is-search-open';
 @forward 'mixins/last';
 @forward 'mixins/letter-spacing';
 @forward 'mixins/mq';

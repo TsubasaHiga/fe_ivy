@@ -11,13 +11,13 @@ import MainContainer from '@layouts/MainContainer/MainContainer'
 import Spacer from '@layouts/Spacer/Spacer'
 import { getNews, getWorks } from '@libs/microcms'
 import type { NewsResponse } from '@type/NewsType'
-import type { WorksResponse } from '@type/WorksType'
+import type { CustomWorksResponse } from '@type/WorksType'
 // const inter = Inter({ subsets: ['latin'] })
 import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
 import { NextSeo } from 'next-seo'
 
 type Props = {
-  worksData: WorksResponse
+  worksData: CustomWorksResponse
   newsData: NewsResponse
 }
 

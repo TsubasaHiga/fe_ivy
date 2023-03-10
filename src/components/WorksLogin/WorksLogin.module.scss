@@ -1,0 +1,27 @@
+.button {
+  @include fz(14, 14);
+  @include hover-opacity;
+
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  color: map.get($colors, 'color-dark-text');
+  background: #fff;
+  border: 1px dashed map.get($colors, 'color-black');
+  border-radius: 4px;
+
+  @include mqw-up {
+    padding: 4px 10px;
+  }
+
+  @include mqw-down {
+    width: 40px;
+    height: 36px;
+    border-style: solid;
+  }
+
+  svg {
+    font-size: 20px;
+  }
+}

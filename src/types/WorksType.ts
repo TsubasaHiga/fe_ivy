@@ -35,12 +35,19 @@ export type WorksType = {
   url?: string
 }
 
+export type GetWorksCountType = {
+  disclosureCount: number
+  nonDisclosureCount: number
+}
+
 export type WorksResponse = {
   totalCount: number
   offset: number
   limit: number
   contents: WorksType[]
 }
+
+export type CustomWorksResponse = WorksResponse & GetWorksCountType
 
 export type SelectedCategoryListType = {
   id: string

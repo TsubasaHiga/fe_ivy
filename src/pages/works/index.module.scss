@@ -1,0 +1,26 @@
+.head {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+
+  @include mqw-down {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.title {
+  @include mqw-down {
+    text-align: center;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include mqw-down {
+    gap: 31px;
+  }
+}

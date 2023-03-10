@@ -1,12 +1,21 @@
 import type { NewsResponse, NewsType } from '@type/NewsType'
-import type { WorksResponse, WorksType } from '@type/WorksType'
+import type { CustomWorksResponse, GetWorksCountType, WorksResponse } from '@type/WorksType'
 import { createClient, MicroCMSQueries } from 'microcms-js-sdk'
 
 // SDK
 const client = createClient({
-  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN || '',
-  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY || ''
+  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN || '',
+  apiKey: process.env.MICROCMS_API_KEY || ''
 })
+
+// 実績一覧のコンテンツ数を取得
+export const getWorksCounts = async (): Promise<GetWorksCountType> => {
+  const data = await client.get<WorksResponse>({ endpoint: 'works' })
+  return {
+    disclosureCount: data.contents.filter((content) => content.isDisclosure).length,
+    nonDisclosureCount: data.contents.filter((content) => !content.isDisclosure).length
+  }
+}
 
 /**
  * 実績一覧取得
@@ -20,7 +29,7 @@ export const getWorks = async ({
 }: {
   isDisclosure: boolean
   addQueries?: MicroCMSQueries
-}) => {
+}): Promise<CustomWorksResponse> => {
   // デフォルトで公開済みのみ取得
   const filter = isDisclosure ? 'isDisclosure[equals]true' : ''
   const queries = {
@@ -28,22 +37,17 @@ export const getWorks = async ({
     filters: filter,
     orders: '-launchDate'
   }
-  return await client.get<WorksResponse>({ endpoint: 'works', queries })
-}
 
-/**
- * 実績詳細取得
- * 例）await getWorksDetail(contentId, { fields: ["id", "title"] })
- * @param contentId
- * @param queries
- * @returns
- */
-export const getWorksDetail = async (contentId: string, queries?: MicroCMSQueries) => {
-  return await client.getListDetail<WorksType>({
-    endpoint: 'works',
-    contentId,
-    queries
-  })
+  // Promise.allで並列処理
+  const [data, counts] = await Promise.all([
+    client.get<WorksResponse>({ endpoint: 'works', queries }),
+    getWorksCounts()
+  ])
+
+  return {
+    ...data,
+    ...counts
+  }
 }
 
 /**

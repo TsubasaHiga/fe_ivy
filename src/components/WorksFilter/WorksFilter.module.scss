@@ -14,6 +14,10 @@
   @include mqw-down {
     width: calc(100% - 54px + 5px - 8px);
     overflow: auto;
+
+    @include is-search-open {
+      display: none;
+    }
   }
 }
 
@@ -24,8 +28,6 @@
 
   @include mqw-down {
     flex-shrink: 0;
-
-    // padding-right: 8px;
   }
 }
 

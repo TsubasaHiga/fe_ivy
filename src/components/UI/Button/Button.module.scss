@@ -6,36 +6,53 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  color: map.get($colors, 'color-white');
+  color: map.get($colors, 'color-dark-text');
   user-select: none;
-  background-color: map.get($colors, 'color-black');
-  border: 1px solid transparent;
-  border-radius: 100px;
   transition: color $com-ms $com-es, background-color $com-ms $com-es, border-color $com-ms $com-es;
 
-  @include canhover {
-    &:hover {
-      color: map.get($colors, 'color-black');
-      background-color: map.get($colors, 'color-white');
-      border-color: map.get($colors, 'color-black');
-    }
+  @include mqw-down {
+    padding-bottom: 4px;
   }
 
-  &[data-active='true'] {
-    color: map.get($colors, 'color-black');
-    background-color: map.get($colors, 'color-white');
-    border-color: map.get($colors, 'color-black');
+  &.filled {
+    color: map.get($colors, 'color-white');
+    background-color: map.get($colors, 'color-black');
+    border: 1px solid transparent;
 
     @include canhover {
       &:hover {
-        color: map.get($colors, 'color-white');
-        background-color: map.get($colors, 'color-black');
-        border-color: transparent;
+        color: map.get($colors, 'color-black');
+        background-color: map.get($colors, 'color-white');
+        border-color: map.get($colors, 'color-black');
+      }
+    }
+
+    &[data-active='true'] {
+      color: map.get($colors, 'color-black');
+      background-color: map.get($colors, 'color-white');
+      border-color: map.get($colors, 'color-black');
+
+      @include canhover {
+        &:hover {
+          color: map.get($colors, 'color-white');
+          background-color: map.get($colors, 'color-black');
+          border-color: transparent;
+        }
       }
     }
   }
 
-  @include mqw-down {
-    padding-bottom: 4px;
+  &.outlined {
+    @include hover-opacity;
+
+    border: 1px dashed map.get($colors, 'color-black');
+  }
+
+  &.radius-full {
+    border-radius: 100px;
+  }
+
+  &.radius-small {
+    border-radius: 8px;
   }
 }
