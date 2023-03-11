@@ -1,7 +1,7 @@
 import AddUaData from '@modules/AddUaData'
 import SetOrientation from '@modules/SetOrientation'
 import Set100vh from '@utils/set100vh'
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 
 // ページロード時の処理
@@ -38,6 +38,8 @@ const CommonScript = () => {
     // SetOrientationの更新
     SetOrientation()
   }, [height])
+
+  return null
 }
 
-export default CommonScript
+export default memo(CommonScript)

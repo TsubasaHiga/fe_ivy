@@ -1,4 +1,4 @@
-import type { PossibleItemType } from '@/types/PossibleItemType'
+import type { PossibleItemType } from '@type/PossibleItemType'
 
 export const possibleList: PossibleItemType[] = [
   {

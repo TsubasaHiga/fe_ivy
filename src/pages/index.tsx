@@ -1,5 +1,3 @@
-// import { Inter } from 'next/font/google'
-
 import About from '@components/About/About'
 import KV from '@components/KV/KV'
 import News from '@components/News/News'
@@ -12,7 +10,6 @@ import Spacer from '@layouts/Spacer/Spacer'
 import { getNews, getWorks } from '@libs/microcms'
 import type { NewsResponse } from '@type/NewsType'
 import type { CustomWorksResponse } from '@type/WorksType'
-// const inter = Inter({ subsets: ['latin'] })
 import GetPageDataFromPageDataList from '@utils/getPageDataFromPageDataList'
 import { NextSeo } from 'next-seo'
 

@@ -16,9 +16,11 @@
     }
   }
 
+  &:focus-visible,
   &:focus-within {
     background-color: map.get($colors, 'color-white');
-    box-shadow: 0 0 0 1px map.get($colors, 'color-dark-gray') inset;
+    box-shadow: $focus-box-shadow;
+    transition: none;
   }
 
   @include mqw-down {
@@ -44,8 +46,10 @@
       color: rgba(map.get($colors, 'color-dark-text'), 0.3);
     }
 
+    &:focus-visible,
     &:focus-within {
       outline: none;
+      box-shadow: none;
     }
   }
 }

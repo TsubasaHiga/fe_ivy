@@ -2,9 +2,8 @@ import CareerList from '@components/CareerList/CareerList'
 import Section from '@components/Section/Section'
 import SectionTitle from '@components/SectionTitle/SectionTitle'
 import LinkButtonSquare from '@components/UI/LinkButtonSquare/LinkButtonSquare'
+import { snsLinks } from '@const/values'
 import { memo, useCallback, useRef } from 'react'
-
-import { snsLinks } from '@/const/values'
 
 import styles from './About.module.scss'
 

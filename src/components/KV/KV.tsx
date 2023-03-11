@@ -15,6 +15,7 @@ const KV = () => {
           </span>
           <span className={styles.name}>
             <NameText />
+            <span className={styles.cursor}></span>
           </span>
         </h1>
       </Spacer>

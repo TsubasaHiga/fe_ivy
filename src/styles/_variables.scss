@@ -32,7 +32,7 @@ $main-w: (
 // Basis space
 $space: (
   xmd: 70px,
-  md: 20px,
+  md: 30px,
   sm: 10px,
   xs: 10px
 );
@@ -45,7 +45,7 @@ $header-h: (
 
 // kvのマイナスマージン
 $kv-margin: (
-  md: 46px,
+  md: 60px,
   sm: 130px
 );
 
@@ -68,6 +68,10 @@ $colors: (
   color-border-light: #e0e0e0,
   color-border-black: #1c1c1c
 );
+
+// focus
+// ----------------------------------------------------------
+$focus-box-shadow: 0 0 0 4px rgba(#000, 0.12);
 
 // 基本easing
 // ----------------------------------------------------------

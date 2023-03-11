@@ -66,7 +66,7 @@ const WorksItem = ({ item, index, isOpen, onClick }: Props): JSX.Element => {
               <img alt={name} loading="lazy" src={thumbnail.url} />
             ) : (
               <div className={styles['no-image']}>
-                <ImageNotSupportedIcon fontSize="large" />
+                <ImageNotSupportedIcon />
                 <p>画像がありません</p>
               </div>
             )}

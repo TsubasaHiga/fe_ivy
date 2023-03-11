@@ -1,7 +1,14 @@
 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wrap {
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: 30px;
+  align-items: center;
   padding: 30px;
   border: 1px solid map.get($colors, 'color-border-light');
   border-radius: 10px;
@@ -11,34 +18,44 @@
     gap: 20px;
     padding: 30px 25px 25px;
   }
-}
 
-.head {
-  @include fz(14, 24);
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  @include mqw-down {
-    gap: 15px;
+  @include notfirst {
+    border-top: 1px solid map.get($colors, 'color-border-light');
   }
 
-  .title {
-    @include fz(22, 22, 700);
+  .head {
+    @include fz(14, 24);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     @include mqw-down {
-      @include fz(20, 20);
+      gap: 15px;
+    }
 
-      text-align: center;
+    .title {
+      @include fz(22, 22, 700);
+
+      @include mqw-down {
+        @include fz(20, 20);
+
+        text-align: center;
+      }
+    }
+
+    a {
+      @include hover-opacity;
+
+      text-decoration: underline;
     }
   }
-}
 
-.button {
-  height: 48px;
+  .button {
+    height: 48px;
 
-  @include mqw-down {
-    @include fz(18);
+    @include mqw-down {
+      @include fz(18);
+    }
   }
 }

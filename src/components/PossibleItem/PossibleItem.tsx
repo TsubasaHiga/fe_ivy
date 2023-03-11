@@ -1,7 +1,6 @@
+import type { PossibleItemType } from '@type/PossibleItemType'
 import Image from 'next/image'
 import { memo } from 'react'
-
-import type { PossibleItemType } from '@/types/PossibleItemType'
 
 import styles from './PossibleItem.module.scss'
 

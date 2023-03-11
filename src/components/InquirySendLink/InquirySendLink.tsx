@@ -17,6 +17,7 @@ const InquirySendLink = ({ text, link, disabled }: Props) => {
       data-disabled={disabled}
       href={link}
       rel="noopener noreferrer"
+      tabIndex={disabled ? -1 : 0}
       target="_blank"
       title={text}
     >

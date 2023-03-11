@@ -1,9 +1,6 @@
 .item {
-  padding: 0 25px;
   border-radius: 12px;
   box-shadow: 0 0 0 1px map.get($colors, 'color-border-light') inset;
-
-  // transition: box-shadow $com-ms $com-es;
 
   @include canhover {
     &:not(.active):hover {
@@ -11,217 +8,233 @@
     }
   }
 
-  @include mqw-down {
-    padding: 0 15px;
-  }
-}
-
-.head {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 0;
-  cursor: pointer;
-
-  @include mqw-down {
-    align-items: flex-start;
-    padding: 17px 0;
-  }
-
-  .head-inner {
+  .head {
     display: flex;
-    gap: 12px;
-    align-items: center;
-    width: 100%;
+    justify-content: space-between;
+    padding: 18px 25px;
+    cursor: pointer;
 
     @include mqw-down {
-      flex-direction: column;
       align-items: flex-start;
+      padding: 17px 15px;
     }
 
-    .meta {
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .head-inner {
       display: flex;
-      gap: 20px;
+      gap: 12px;
       align-items: center;
-
-      @include mqw-down {
-        gap: 10px;
-      }
-    }
-
-    .date {
-      @include fz(16, 16);
-
-      font-family: $font-inter;
-    }
-
-    .cate {
-      @include fz(12, 12, 700);
-
-      display: flex;
-      justify-content: center;
-      min-width: 116px;
-      height: 32px;
-      padding: 10px 15px;
-      color: map.get($colors, 'color-dark-text');
-      background-color: map.get($colors, 'color-light-gray');
-      border-radius: 100px;
-      transition: color $com-ms $com-es, background-color $com-ms $com-es;
-
-      @include canhover {
-        &:hover {
-          color: map.get($colors, 'color-white');
-          background-color: map.get($colors, 'color-black');
-        }
-      }
-
-      @include mqw-down {
-        min-width: 84px;
-        height: 24px;
-        padding: 6px 12px;
-      }
-    }
-
-    .title {
-      @include fz(16, 16, 700);
-
-      @include mqw-down {
-        @include fz(16, 22);
-      }
-    }
-  }
-
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .close-icon {
-    color: map.get($colors, 'color-gray');
-  }
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 30px;
-  align-items: center;
-  padding: 0 0 25px;
-
-  @include mqw-down {
-    display: flex;
-    flex-direction: column;
-    gap: 27px;
-    padding: 0 0 18px;
-  }
-
-  .image {
-    aspect-ratio: 25/14;
-    overflow: hidden;
-    pointer-events: none;
-    background-color: map.get($colors, 'color-light-gray');
-    border-radius: 10px;
-
-    @include mqw-down {
-      width: 100%;
-      border-radius: 8px;
-    }
-  }
-
-  .no-image {
-    @include fz(16);
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: map.get($colors, 'color-gray');
-  }
-
-  .detail {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-
-    @include mqw-down {
-      gap: 23px;
-    }
-
-    .detail-title {
-      @include fz(24, 30, 700);
-    }
-
-    .detail-list {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
       width: 100%;
 
       @include mqw-down {
-        gap: 7px;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      dl {
+      .meta {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         align-items: center;
 
-        dt {
-          @include fz(14, 14);
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 100px;
-          height: 30px;
-          padding: 8px 22px;
-          color: rgba(map.get($colors, 'color-dark-text'), 0.65);
-          background-color: map.get($colors, 'color-light-gray');
-          border-radius: 4px;
-
-          @include mqw-down {
-            @include fz(14);
-
-            min-width: 80px;
-            padding: 8px 10px;
-          }
-        }
-
-        dd {
-          @include fz(16, 16, 700);
-
-          @include mqw-down {
-            @include fz(14, 18);
-          }
-
-          a {
-            text-decoration: underline;
-            word-break: break-all;
-          }
+        @include mqw-down {
+          gap: 10px;
         }
       }
-    }
-  }
-}
 
-.active {
-  box-shadow: 0 0 0 2px map.get($colors, 'color-border-black') inset;
+      .date {
+        @include fz(16, 16);
 
-  .head {
-    padding: 26px 0;
+        font-family: $font-inter;
+      }
 
-    @include mqw-down {
-      padding: 20px 0;
+      .cate {
+        @include fz(12, 12, 700);
+
+        display: flex;
+        justify-content: center;
+        min-width: 116px;
+        height: 32px;
+        padding: 10px 15px;
+        color: map.get($colors, 'color-dark-text');
+        background-color: map.get($colors, 'color-light-gray');
+        border-radius: 100px;
+        transition: color $com-ms $com-es, background-color $com-ms $com-es;
+
+        @include canhover {
+          &:hover {
+            color: map.get($colors, 'color-white');
+            background-color: map.get($colors, 'color-black');
+          }
+        }
+
+        @include mqw-down {
+          min-width: 84px;
+          height: 24px;
+          padding: 6px 12px;
+        }
+      }
+
+      .title {
+        @include fz(16, 16, 700);
+
+        @include mqw-down {
+          @include fz(16, 22);
+        }
+      }
     }
 
     .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-icon {
+      color: map.get($colors, 'color-gray');
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 30px;
+    align-items: center;
+    padding: 0 25px 25px;
+
+    @include mqw-down {
+      display: flex;
+      flex-direction: column;
+      gap: 27px;
+      padding: 0 15px 18px;
+    }
+
+    .image {
+      aspect-ratio: 25/14;
+      overflow: hidden;
+      pointer-events: none;
+      background-color: map.get($colors, 'color-light-gray');
+      border-radius: 10px;
+
+      @include mqw-down {
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    .no-image {
+      @include fz(16);
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: map.get($colors, 'color-gray');
+
+      svg {
+        font-size: 40px;
+      }
+    }
+
+    .detail {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
       align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+
+      @include mqw-down {
+        gap: 23px;
+      }
+
+      .detail-title {
+        @include fz(24, 30, 700);
+      }
+
+      .detail-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+
+        @include mqw-down {
+          gap: 7px;
+        }
+
+        dl {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          dt {
+            @include fz(14, 14);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            height: 30px;
+            padding: 8px 22px;
+            color: rgba(map.get($colors, 'color-dark-text'), 0.65);
+            background-color: map.get($colors, 'color-light-gray');
+            border-radius: 4px;
+
+            @include mqw-down {
+              @include fz(14);
+
+              min-width: 80px;
+              padding: 8px 10px;
+            }
+          }
+
+          dd {
+            @include fz(16, 20, 500);
+
+            @include mqw-down {
+              @include fz(14, 18);
+            }
+
+            a {
+              text-decoration: underline;
+              word-break: break-all;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    box-shadow: 0 0 0 2px map.get($colors, 'color-border-black') inset;
+
+    .head {
+      padding: 26px 25px;
+
+      @include mqw-down {
+        padding: 20px 15px;
+      }
+
+      .icon {
+        align-items: flex-start;
+      }
+    }
+  }
+
+  &:not(.active) {
+    .head {
+      &:focus-visible {
+        background-color: map.get($colors, 'color-white');
+        outline: none;
+        box-shadow: $focus-box-shadow;
+        transition: none;
+      }
     }
   }
 }

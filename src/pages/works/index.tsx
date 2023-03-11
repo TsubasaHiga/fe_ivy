@@ -29,7 +29,6 @@ export const Works = ({ data }: Props) => {
   const { title, description } = GetPageDataFromPageDataList('news')
 
   const { data: session, status } = useSession()
-  console.log({ session, status })
 
   // if (status === 'loading') return <div>Loading...</div>
 

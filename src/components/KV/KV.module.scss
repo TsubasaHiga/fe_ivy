@@ -16,12 +16,12 @@
 .title {
   display: flex;
   flex-direction: column;
-  gap: 34px 0;
-  margin-top: 96px;
+  gap: 33px 0;
+  margin-top: 84px;
 
   @include mqw-down {
-    gap: 21px 0;
-    margin-top: 104px;
+    gap: 25px 0;
+    margin-top: 114px;
   }
 }
 
@@ -36,14 +36,48 @@
 }
 
 .name {
-  width: 241px;
-  height: 73px;
-  margin-right: 38px;
+  position: relative;
+  width: 232.01px;
+  height: 76.36px;
+  margin-right: 48px;
   margin-left: auto;
 
   @include mqw-down {
-    width: 183.07px;
-    height: 55px;
-    margin-right: 30px;
+    width: 184.35px;
+    height: 60.67px;
+    margin-right: 38px;
+  }
+
+  .cursor {
+    position: absolute;
+    right: -14px;
+    bottom: 1px;
+    width: 4px;
+    height: 32px;
+    background-color: map.get($colors, 'color-black');
+    animation: blink 1s step-end infinite;
+
+    @include mqw-down {
+      right: -13px;
+      bottom: 0;
+      width: 3px;
+      height: 28px;
+    }
+
+    // 点滅アニメーション
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
   }
 }

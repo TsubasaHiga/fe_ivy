@@ -1,4 +1,4 @@
-import GetOrientation from '@/utils/getOrientation'
+import GetOrientation from '@utils/getOrientation'
 
 const SetOrientation = () => (document.documentElement.dataset.orientation = GetOrientation())
 

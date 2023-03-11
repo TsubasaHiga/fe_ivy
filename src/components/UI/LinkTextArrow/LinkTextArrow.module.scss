@@ -1,0 +1,20 @@
+.button {
+  @include fz(16, 20);
+  @include hover-opacity;
+
+  display: flex;
+  align-items: center;
+  font-family: $font-mix;
+  background-color: #fff;
+
+  @include mqw-down {
+    @include fz(14, 18);
+  }
+
+  svg {
+    font-size: 26px;
+    @include mqw-down {
+      font-size: 24px;
+    }
+  }
+}
